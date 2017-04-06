@@ -31,7 +31,7 @@
 | zebra stripes | are neat      |    $1 |
 
 - 图片： `![](){ImgCap}{/ImgCap}`
-- 链接： `[]()`
+- 链接： `[]()`  [kuckboy](http://www.kuckboy.com)
 - `tab`键即可缩进
 - 两个`之间的内容被标记
 
