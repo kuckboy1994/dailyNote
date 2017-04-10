@@ -12,7 +12,8 @@
 
 ## meta
 ```html
- <meta>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
  ```
 
 > <meta> 元素可提供有关页面的元信息（meta-information），比如针对搜索引擎和更新频度的描述和关键词。
@@ -27,6 +28,15 @@ content | some_text | 定义与 http-equiv 或 name 属性相关的元信息
 http-equiv | content-type expires refresh set-cookie | 把 content 属性关联到 HTTP 头部
 name | author description keywords generator revised others | 把 content 属性关联到一个名称
 scheme | some_text | 定义用于翻译content属性值的格式
+
+**注：**  
+< meta http-equiv = "X-UA-Compatible" content = "IE=edge,chrome=1" />
+
+这是个是**IE8的专用标记**,用来指定IE8浏览器去模拟某个特定版本的IE浏览器的渲染方式(比如人见人烦的IE6)，以此来**解决部分兼容问题**，例如模拟IE7的具体方式如下：
+
+< meta http-equiv = "X-UA-Compatible" content = "IE=EmulateIE7" />
+
+谷歌做了个外挂：Google Chrome Frame(谷歌内嵌浏览器框架GCF)。这个插件可以让用户的IE浏览器外不变，但用户在浏览网页时，实际上使用的是Google Chrome浏览器内核，而且支持IE6、7、8等多个版本的IE浏览器。
 
 ## link
 ## script
@@ -95,6 +105,10 @@ scheme | some_text | 定义用于翻译content属性值的格式
 ## u - 下划线
 ## var - 定义变量
 
+## nav 导航栏
+## footer 页脚
+## canvas 图表和图像
+
 # html相关的说明
 ## html语义化
 - 所谓语义化就是通过每个标签知道其标签的功能。如<a>,<title>以及H5新增加的<heder>,<footer>,<nav>,<article>,<aside>等等。
@@ -113,3 +127,6 @@ scheme | some_text | 定义用于翻译content属性值的格式
 
 ## Localstorage
 Localstorage是**html5存储数据**的方式，在HTML5中，本地存储是一个window的属性，包括`localStorage`和`sessionStorage`。HTML5本地存储只能存字符串，任何格式存储的时候都会被自动转为字符串，所以读取的时候，需要自己进行类型的转换。是**永久性存储**，当然用户可以通过浏览器设置来删除。
+
+## html页面的加载顺序
+html文档加载是从上到下加载，只与标签的上下顺序有关，与标签选用无关。
