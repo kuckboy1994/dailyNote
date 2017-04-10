@@ -33,7 +33,7 @@
 注释一般的写法，遵从这个规范方便大家理解，解决强迫症的问题。。。
 
 ### 圣战—— tab vs space
-![](http://i.imgur.com/ow6DnXf.png)
+![](http://i.imgur.com/ow6DnXf.png)  
 `o(*￣︶￣*)o` 个人比较喜欢tab，这里的tab指四个空格。
 
 
