@@ -25,5 +25,8 @@
 
 ## 重定向（3字头）
 
+## TCP 三次握手
+
+
 ## 参考
 - [HTTP状态码](http://baike.baidu.com/item/HTTP%E7%8A%B6%E6%80%81%E7%A0%81/5053660?fr=aladdin)
