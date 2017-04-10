@@ -34,6 +34,8 @@
 
 ### 圣战—— tab vs space
 ![](http://i.imgur.com/ow6DnXf.png)  
+千万不要tab和space混用，还有什么比生命更加重要呢？    
+[优酷视频链接](http://v.youku.com/v_show/id_XMTYzMDQ3ODgxMg==.html)  
 `o(*￣︶￣*)o` 个人比较喜欢tab，这里的tab指四个空格。
 
 
@@ -116,6 +118,10 @@ function siblingCheck( a, b ) {
 
 ```
 
+### 单行注释和多行注释的使用规范
+- 方法前面使用多行注释。
+- 方法内部使用单行注释，如果内容比较多，使用多个单行注释。
+
 
 ### 文档注释
 ``` javascript
@@ -194,10 +200,6 @@ var postId = 1;
 // end add
 ```
 
-
-
-
-
 ## 参考
 - [编程注释规范](http://www.jianshu.com/p/822aa0077595)
 - [JavaScript编码规范](https://github.com/fex-team/styleguide/blob/master/javascript.md)
@@ -205,3 +207,5 @@ var postId = 1;
 - [强迫症->js注释规范](https://segmentfault.com/a/1190000000502593)
 - [为什么缩进用 tab 比用 space 好？](http://www.jianshu.com/p/dc0986b3e68a)
 - [代码注释规范](http://www.cnblogs.com/yiyumeng/archive/2012/01/18/2325298.html)
+- [为何 Emacs 和 Vim 被称为两大神器](https://linuxtoy.org/archives/why-emacs-vim-good.html)
+- [用 Tab 还是 Space？谷歌程序员分析了10亿份代码](http://blog.jobbole.com/105381/)
