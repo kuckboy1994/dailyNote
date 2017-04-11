@@ -43,12 +43,12 @@ gulp.task('streamtest2',function(){
 ///////**********泡一杯咖啡demo***********//////
 
 var through = require("through2");
-gulp.task('makecoffee',function(){
-    gulp.src('./src/coffee.txt')
+gulp.task('makecoffee', function(){
+    gulp.src('./js/app.min.js')
         .pipe(addcoffeebean()) //加咖啡豆
         .pipe(addwater()) //加水
         .pipe(addmilk()) //加奶
-        .pipe(gulp.dest("./src")); //输出到原来的目录覆盖文件
+        .pipe(gulp.dest("./js-d/")); //输出到原来的目录覆盖文件
 });
 //加咖啡豆
 function addcoffeebean(){
@@ -84,3 +84,18 @@ function addmilk(){
         cb();
     });
 }
+
+
+gulp.task("copyDir",function(){
+    gulp.src("./*/*.js")
+        .pipe(gulp.dest("./js-cef/"));
+    console.log(gulp);
+});
+
+gulp.task("copyfiles2",function(){
+    return gulp.src("/src/*.*")
+               .pipe(gulp.dest("/dist"));
+});
+
+// =========== default ====================
+gulp.task('default', ['copyDir']);

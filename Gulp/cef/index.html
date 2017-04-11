@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Level-2深度分析</title>
+	<link rel="stylesheet" href="css/style.css" />
+	<link rel="stylesheet" href="css/userinfo.css" />
+</head>
+<body>
+	<div class="wrap-top">
+		<div class="logo logo-ydb">
+		</div>
+		<span class="ad-top" id="ad_top"></span>
+		<div class="vote-content">
+			<div class="vote-progress">
+				<div class="vote-rise">
+					<div class="vote-rise-btn icon" id="vote_rise_btn">
+					</div>
+					<p class="vote-rise-num" id="vote_rise_num">0</p>
+				</div>
+				<div class="vote-fall">
+					<div class="vote-fall-btn icon" id="vote_fall_btn">
+					</div>
+					<p class="vote-fall-num" id="vote_fall_num">0</p>
+				</div>
+				<i class="vote-rise-pic icon"></i>
+				<i class="vote-fall-pic icon"></i>
+				<p class="vote-date-tip"><span id="vote_date"></span>您是看涨还是看跌？</p>
+				<div class="vote-bar-bg">
+					<span class="vote-rise-bar">
+						<i class="vote-pointer icon"></i>
+					</span>
+				</div>
+			</div>
+		</div>
+		<div class="wrap-top-nav">
+			<ul class="clearfix">
+				<li>自选股[F6]</li>
+				<li>大盘[F3]</li>
+				<li>涨幅排行[60]</li>
+				<li>资讯</li>
+				<li>L2直播</li>
+				<li>操盘热点[200]</li>
+				<li class="nav-last">快速涨跌[80]</li>
+			</ul>
+		</div>
+	</div>
+	<div class="container">
+		<div class="wrap-main">
+			<div class="wrap-middle">
+				<!-- 指标功能 -->
+				<div class="module-box zbfun-box pdb1">
+					<div class="title">
+						<p class="title-item title-active">
+							<i></i>
+							<span id="fnindex_name">指标功能</span>
+						</p>
+					</div>
+					<div class="mod-content clearfix" id="fnindex_content">
+					</div>
+					<div class="mod-content clearfix hide" id="cache_fnindex">
+						<div class="fn-btn" urlInfo="4417|资金仓位" taid="" openStyle="11">
+							<i class="icon icon-hot"></i>
+							<b class="fnicon r1-c1"></b>
+							<p>资金仓位</p>
+						</div>
+						<div class="fn-btn" urlInfo="4214|高抛低吸" taid="" openStyle="11">
+							<b class="fnicon r1-c2"></b>
+							<p>高抛低吸</p>
+						</div>
+						<div class="fn-btn" urlInfo="4417|资金抄底" taid="" openStyle="11">
+							<b class="fnicon r1-c3"></b>
+							<p>资金抄底</p>
+						</div>
+						<div class="fn-btn" urlInfo="4214|分时突破" taid="" openStyle="11">
+							<i class="icon icon-new"></i>
+							<b class="fnicon r1-c4"></b>
+							<p>分时突破</p>
+						</div>
+						<div class="fn-btn" urlInfo="1A0001" taid="" openStyle="10">
+							<b class="fnicon r1-c5"></b>
+							<p>大盘趋势线</p>
+						</div>
+						<div class="fn-btn nomargin" urlInfo="12108|主力动向" taid="" openStyle="11">
+							<b class="fnicon r1-c6"></b>
+							<p>主力动向</p>
+						</div>
+						<div class="fn-btn" urlInfo="6240" taid="" openStyle="1">
+							<b class="fnicon r2-c1"></b>
+							<p>大盘BBD</p>
+						</div>
+						<div class="fn-btn" urlInfo="4417|大单净量" taid="" openStyle="11">
+							<b class="fnicon r2-c2"></b>
+							<p>大单净量</p>
+						</div>
+						<div class="fn-btn" urlInfo="shapecalculate" taid="" openStyle="3">
+							<b class="fnicon r2-c3"></b>
+							<p>形态预测</p>
+						</div>
+						<div class="fn-btn" urlInfo="4214|千档委比" taid="" openStyle="11">
+							<b class="fnicon r2-c4"></b>
+							<p>千档委比</p>
+						</div>
+						<div class="fn-btn" urlInfo="6410" taid="" openStyle="1">
+							<i class="icon icon-new"></i>
+							<b class="fnicon r2-c5"></b>
+							<p>个股智能决策</p>
+						</div>
+						<div class="fn-btn nomargin" urlInfo="ShortTermElves" taid="" openStyle="3">
+							<b class="fnicon r2-c6"></b>
+							<p>短线精灵</p>
+						</div>
+					</div>
+				</div>
+				<!-- 选股功能 -->
+				<div class="module-box xgfun-box border-t-b pdb1">
+					<div class="title">
+						<p class="title-item title-active">
+							<i></i>
+							<span id="fnselect_name">选股功能</span>
+						</p>
+					</div>
+					<div class="mod-content clearfix" id="fnselect_content">
+					</div>
+					<div class="mod-content clearfix hide" id="cache_fnselect">
+						<div class="fn-btn" urlInfo="http://www.iwencai.com/stockpick?tid=stockpick&ts=appcenter&qs=client_apptg" taid="" openStyle="2">
+							<i class="icon icon-hot"></i>
+							<b class="fnicon r3-c1"></b>
+							<p>问财选股</p>
+						</div>
+						<div class="fn-btn" urlInfo="http://vis.10jqka.com.cn/level2/?$do=level2_net_plate&enter=industry&type=industry&css=level2&account=<account>&passwd=<passwd>" taid="" openStyle="2">
+							<i class="icon icon-hot"></i>
+							<b class="fnicon r3-c2"></b>
+							<p>BBD选股</p>
+						</div>
+						<div class="fn-btn" urlInfo="http://vis.10jqka.com.cn/zjxg/index/index/?$account=<account>&passwd=<passwd>" taid="" openStyle="2">
+							<b class="fnicon r3-c3"></b>
+							<p>选股雷达</p>
+						</div>
+						<div class="fn-btn" urlInfo="5709|多日主力" taid="" openStyle="11">
+							<b class="fnicon r3-c4"></b>
+							<p>多日主力</p>
+						</div>
+						<div class="fn-btn" urlInfo="http://yjs.10jqka.com.cn/obo/index.html" taid="" openStyle="2">
+							<b class="fnicon r3-c5"></b>
+							<p>逐笔雷达</p>
+						</div>
+						<div class="fn-btn nomargin" urlInfo="http://vis.10jqka.com.cn/zlxgpt/" taid="" openStyle="2">
+							<b class="fnicon r3-c6"></b>
+							<p>主力选股平台</p>
+						</div>
+						<div class="fn-btn" urlInfo="5588|急速决策" taid="" openStyle="11">
+							<b class="fnicon r4-c1"></b>
+							<p>急速决策</p>
+						</div>
+						<div class="fn-btn" urlInfo="10191" taid="" openStyle="1">
+							<b class="fnicon r4-c2"></b>
+							<p>DDE全景图</p>
+						</div>
+						<div class="fn-btn" urlInfo="7362" taid="" openStyle="1">
+							<b class="fnicon r4-c3"></b>
+							<p>一键选股</p>
+						</div>
+						<div class="fn-btn" urlInfo="9166|个股资金" taid="" openStyle="1">
+							<b class="fnicon r4-c4"></b>
+							<p>个股资金</p>
+						</div>
+						<div class="fn-btn" urlInfo="9586" taid="" openStyle="1">
+							<b class="fnicon r4-c5"></b>
+							<p>异动看盘</p>
+						</div>
+						<div class="fn-btn nomargin" urlInfo="4671" taid="" openStyle="1">
+							<b class="fnicon r4-c6"></b>
+							<p>机构动向</p>
+						</div>
+					</div>
+				</div>
+				<!-- 市场强弱 -->
+				<div class="module-box scqr-box">
+					<div class="title">
+						<p class="title-item title-active pointer" data-tab="scqr">
+							<i></i>
+							<span>市场强弱</span>
+						</p>
+						<p class="title-item pointer" data-tab="zqxy">
+							<i></i>
+							<span>赚钱效应</span>
+						</p>
+					</div>
+					<div class="mod-content">
+						<div class="tab-box tab-scqr">
+							<div class="chart-scqr-box clearfix">
+								<div class="half chart-scqr-left">
+									<div class="scqr-container" id="scqr-container">
+									</div>
+								</div>
+								<div class="half half-fr chart-scqr-right">
+									<div class="scqr-pie-all clearfix">
+										<div class="scqr-pie-item">
+											<div class="scqr-pie-1">
+											</div>
+											<p class="ztbg"><i></i>涨停：<span id="scqr_col1_data1">--</span></p>
+											<p class="dtbg"><i></i>跌停：<span id="scqr_col1_data2">--</span></p>
+											<p class="clearfix"><span class="fl">强弱：</span><span class="fl icon level level-0" id="scqr_col1_data3"></span></p>
+										</div>
+										<div class="scqr-pie-item">
+											<div class="scqr-pie-2">
+											</div>
+											<p class="ztbg"><i></i>上涨：<span id="scqr_col2_data1">--</span></p>
+											<p class="dtbg"><i></i>下跌：<span id="scqr_col2_data2">--</span></p>
+											<p class="clearfix"><span class="fl">强弱：</span><span class="fl icon level level-0" id="scqr_col2_data3"></span></p>
+										</div>
+										<div class="scqr-pie-item">
+											<div class="scqr-pie-3">
+											</div>
+											<p class="ztbg"><i></i>封板：<span id="scqr_col3_data1">--</span></p>
+											<p class="dtbg"><i></i>开板：<span id="scqr_col3_data2">--</span></p>
+											<p class="clearfix"><span class="fl">强弱：</span><span class="fl icon level level-0" id="scqr_col3_data3"></span></p>
+										</div>
+									</div>
+									<div class="rating">
+										<span class="fl">综合评论：</span>
+										<ul class="scqr-levels fl">
+											<li>极强</li>
+											<li>强</li>
+											<li>偏强</li>
+											<li>偏弱</li>
+											<li>弱</li>
+											<li>极弱</li>
+										</ul>
+									</div>
+									<!-- <p class="rating">综合评论：<span id="scqr_starlevel">--</span></p> -->
+								</div>
+							</div>
+						</div>
+						<!-- 赚钱效应 -->
+						<div class="tab-box tab-zqxy hide">
+							<div class="chart-zqxy-box clearfix">
+								<div class="half chart-zqxy-left">
+									<div class="zqxy-title-container">
+										<p class="zqxy-l-title">昨日上涨，今日表现</p>
+										<div class="zqxy-container" id="zqxy-container">
+										</div>
+									</div>
+								</div>
+								<div class="half half-fr chart-zqxy-right">
+									<div class="zqxy-pie-all clearfix">
+										<p class="zqxy-l-title2">今日表现</p>
+										<div class="zqxy-pie-item">
+											<p class="zqxy-pie-tip">昨日涨停股</p>
+											<div class="zqxy-pie-1">
+											</div>
+											<p class="ztbg"><i></i>上涨：<span id="zqxy_col1_data1">--</span></p>
+											<p class="dtbg"><i></i>下跌：<span id="zqxy_col1_data2">--</span></p>
+											<p class="p-profit clearfix"><span class="fl">盈利：</span><span class="fl" id="zqxy_col1_data3">--</span></p>
+										</div>
+										<div class="zqxy-pie-item">
+											<p class="zqxy-pie-tip">昨日上涨股</p>
+											<div class="zqxy-pie-2">
+											</div>
+											<p class="ztbg"><i></i>上涨：<span id="zqxy_col2_data1">--</span></p>
+											<p class="dtbg"><i></i>下跌：<span id="zqxy_col2_data2">--</span></p>
+											<p class="p-profit clearfix"><span class="fl">盈利：</span><span class="fl" id="zqxy_col2_data3">--</span></p>
+										</div>
+										<div class="zqxy-pie-item">
+											<p class="zqxy-pie-tip">今日个股K线</p>
+											<div class="zqxy-pie-3">
+											</div>
+											<p class="ztbg"><i></i>阳线：<span id="zqxy_col3_data1">--</span></p>
+											<p class="dtbg"><i></i>阴线：<span id="zqxy_col3_data2">--</span></p>
+											<p class="p-profit clearfix"><span class="fl">盈利：</span><span class="fl" id="zqxy_col3_data3">--</span></p>
+										</div>
+									</div>
+									<div class="rating">
+										<span class="fl">综合评论：</span>
+										<ul class="zqxy-levels fl">
+											<li>极强</li>
+											<li>强</li>
+											<li>偏强</li>
+											<li>偏差</li>
+											<li>差</li>
+											<li>极差</li>
+										</ul>
+									</div>
+									<!-- <p class="rating">综合评论：<span id="zqxy_starlevel">--</span></p> -->
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="wrap-left">
+			<div class="module-box market-box">
+				<div class="title">
+					<p class="title-item title-active">
+						<i></i>
+						<span>指数</span>
+					</p>
+				</div>
+				<div class="table-box">
+					<table>
+						<colgroup>
+							<col width="64px">
+							<col width="60px">
+							<col width="74px">
+							<col width="75px">
+							<col width="70px">
+						</colgroup>
+						<thead>
+							<tr>
+								<td class="txt-c">名称</td>
+								<td>最新</td>
+								<td>涨跌幅</td>
+								<td>成交额</td>
+								<td class="pdr8">BBD</td>
+							</tr>
+						</thead>
+						<tbody id="index_container" data-type="index">
+							<tr data-code="1A0001">
+								<td class="yellow txt-l pdl8">上证指数</td>
+								<td>--</td>
+								<td>--</td>
+								<td class="yellow">--</td>
+								<td class="pdr8">--</td>
+							</tr>
+							<tr data-code="399001">
+								<td class="yellow txt-l pdl8">深证指数</td>
+								<td>--</td>
+								<td>--</td>
+								<td class="yellow">--</td>
+								<td class="pdr8">--</td>
+							</tr>
+							<tr data-code="399006">
+								<td class="yellow txt-l pdl8">创业指数</td>
+								<td>--</td>
+								<td>--</td>
+								<td class="yellow">--</td>
+								<td class="pdr8">--</td>
+							</tr>
+						</tbody>
+					</table>
+					<table>
+						<colgroup>
+							<col width="64px">
+							<col width="60px">
+							<col width="74px">
+							<col width="75px">
+							<col width="70px">
+						</colgroup>
+						<thead>
+							<tr>
+								<td class="txt-c border-t">名称</td>
+								<td class="border-t">最新</td>
+								<td class="border-t">涨跌幅</td>
+								<td class="border-t">涨跌</td>
+								<td class="border-t pdr8">期现差</td>
+							</tr>
+						</thead>
+						<tbody id="futures_container" data-type="futures">
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<!-- 自选股 -->
+			<div class="module-box stocks-box border-t-b">
+				<div class="title">
+					<p class="title-item title-active">
+						<i></i>
+						<span>自选股</span>
+					</p>
+				</div>
+				<div class="table-box">
+					<table>
+						<colgroup>
+							<col width="64px">
+							<col width="60px">
+							<col width="70px">
+							<col width="74px">
+							<col width="75px">
+						</colgroup>
+						<thead>
+							<tr>
+								<td class="txt-c">名称</td>
+								<td>现价</td>
+								<td>涨跌幅</td>
+								<td>成交额</td>
+								<td class="pdr12">成交量</td>
+							</tr>
+						</thead>
+					</table>
+					<div class="table-content width100" id="stocks_container">
+						<table class="width100">
+							<colgroup>
+								<col width="64px">
+								<col width="60px">
+								<col width="70px">
+								<col width="74px">
+								<col width="75px">
+							</colgroup>
+							<tbody data-type="selfstocks">
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			<!-- L2股池 -->
+			<div class="module-box stockpool-box">
+				<div class="title">
+					<p class="title-item title-active pointer" data-tab="pool">
+						<i></i>
+						<span>L2股池</span>
+					</p>
+					<p class="title-item pointer" data-tab="ipo">
+						<i></i>
+						<span>新股申购</span>
+					</p>
+				</div>
+				<div class="table-box">
+					<div class="tab-box tab-gc">
+						<table>
+							<colgroup>
+								<col width="64px">
+								<col width="60px">
+								<col width="70px">
+								<col width="74px">
+								<col width="75px">
+							</colgroup>
+							<thead>
+								<tr>
+									<td class="txt-c">名称</td>
+									<td class="sortbtn" sortby="zdf" isShow="isShow">涨跌幅<i>↓</i></td>
+									<td class="sortbtn" sortby="xj">现价<i></i></td>
+									<td>成交额</td>
+									<td class="pdr12">L2指标</td>
+								</tr>
+							</thead>
+						</table>
+						<div class="table-content width100">
+							<table class="width100">
+								<colgroup>
+									<col width="64px">
+									<col width="60px">
+									<col width="70px">
+									<col width="74px">
+									<col width="75px">
+								</colgroup>
+								<tbody id="stockpool_container" data-type="stockpool">
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<div class="tab-box hide tab-xgsg">
+						<table>
+							<thead>
+								<tr>
+									<td class="txt-c col65">名称</td>
+									<td class="txt-c col65">申购日</td>
+									<td class="txt-c col65">申购代码</td>
+									<td class="txt-c col70">发行价</td>
+									<td class="txt-c col78">发行量(万)</td>
+								</tr>
+							</thead>
+						</table>
+						<div class="table-content width100">
+							<table class="width100">
+								<tbody id="ipo_container" data-type="ipo">
+									<tr class="hide">
+										<td style="text-align:center;height:124px;">当前暂无新股申购</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="wrap-right">
+			<div class="userinfoall">
+				<div class="userinfo">
+					<div class="userinfo-left">
+						<img src="http://u.thsi.cn/avatar/default/0.jpg" class="portrait">
+					</div>
+					<div class="userinfo-right">
+						<div class="username">
+							<span id="username">--</span>
+						</div>
+						<div class="kefuemail">客服邮箱：level2@myhexin.com</div>
+						<div class="youxiaoqi"><span class="remainday-text">剩余：<span class="remainday" id="leftDays">--</span>天</span>有效期：<span id="leftDate">----</span></div>
+						<div class="xufei">
+							<button class="lijixufei"></button>
+							<div id="buylabel"></div>
+						</div>
+					</div>
+				</div>
+				<div class="question center">
+					<button class="tiwen" id="ask_btn">提问</button>
+					<input type="text" name="question" id="question-input" value="请输入您的问题" />
+				</div>
+				<div class="message bottom tab">
+					<div class="tab_menu">
+						<ul>
+							<li class="on">通知</li>
+							<li>投资课堂</li>
+						</ul>
+					</div>
+					<div class="tab_box">
+						<div class="message-tab">
+							<div class="message-tab-line" id="tab-line-0">
+								<div class="userinfo-icon-0"></div>
+								<div class="message-tab-line-right">
+									<div class="message-tab-line-right-div"><span class="message-tab-line-right-span">Level-2说明书</span>
+										<div class="icon-top"></div>
+									</div>
+									<a class="message-tab-line-right-title" id="message_a_0"></a>
+								</div>
+							</div>
+							<div class="message-tab-line" id="tab-line-1">
+								<div class="userinfo-icon-6"></div>
+								<div class="message-tab-line-right">
+									<div class="message-tab-line-right-div"><span class="message-tab-line-right-span">Level-2说明书</span>
+										<div class="icon-top"></div>
+									</div>
+									<a class="message-tab-line-right-title" id="message_a_1"></a>
+								</div>
+							</div>
+							<div class="message-tab-line message-order" id="tab-line-2" data-time="">
+								<div class="userinfo-icon-1"></div>
+								<div class="message-tab-line-right">
+									<span class="message-tab-line-right-span"><span class="message-tab-line-title">今日收评</span><i class="icon-video"></i></span>
+									<div class="message-tip"></div>
+									<a class="message-tab-line-right-title" id="message_a_2"></a>
+									<span class="message-time"></span>
+								</div>
+							</div>
+							<div class="message-tab-line message-order" id="tab-line-3" data-time="">
+								<div class="userinfo-icon-2"></div>
+								<div class="message-tab-line-right">
+									<span class="message-tab-line-right-span"><span class="message-tab-line-title">今日技巧</span><i class="icon-text"></i></span>
+									<div class="message-tip"></div>
+									<a class="message-tab-line-right-title" id="message_a_3"></a>
+									<span class="message-time"></span>
+								</div>
+							</div>
+							<div class="message-tab-line message-order" id="tab-line-4" data-time="">
+								<div class="userinfo-icon-3"></div>
+								<div class="message-tab-line-right">
+									<span class="message-tab-line-right-span"><span class="message-tab-line-title">早盘必读</span><i class="icon-text"></i></span>
+									<div class="message-tip"></div>
+									<a class="message-tab-line-right-title" id="message_a_4"></a>
+									<span class="message-time"></span>
+								</div>
+							</div>
+							<div class="message-tab-line message-order" id="tab-line-5" data-time="21:26">
+								<div class="userinfo-icon-4"></div>
+								<div class="message-tab-line-right">
+									<span class="message-tab-line-right-span"><span class="message-tab-line-title">每日一招</span><i class="icon-text"></i></span>
+									<div class="message-tip"></div>
+									<a class="message-tab-line-right-title" id="message_a_5"></a>
+									<span class="message-time"></span>
+								</div>
+							</div>
+							<div class="message-tab-line message-order" id="tab-line-6" data-time="">
+								<div class="userinfo-icon-5"></div>
+								<div class="message-tab-line-right">
+									<span class="message-tab-line-right-span"><span class="message-tab-line-title">经典案例</span><i class="icon-text"></i></span>
+									<div class="message-tip"></div>
+									<a class="message-tab-line-right-title" id="message_a_6"></a>
+									<span class="message-time"></span>
+								</div>
+							</div>
+							<div class="message-tab-line message-order" id="tab-line-7" data-time="">
+								<div class="userinfo-icon-5"></div>
+								<div class="message-tab-line-right">
+									<span class="message-tab-line-right-span"><span class="message-tab-line-title">经典案例</span><i class="icon-text"></i></span>
+									<div class="message-tip"></div>
+									<a class="message-tab-line-right-title" id="message_a_7"></a>
+									<span class="message-time"></span>
+								</div>
+							</div>
+							<div class="message-tab-line message-order" id="tab-line-8" data-time="">
+								<div class="userinfo-icon-5"></div>
+								<div class="message-tab-line-right">
+									<span class="message-tab-line-right-span"><span class="message-tab-line-title">经典案例</span><i class="icon-text"></i></span>
+									<div class="message-tip"></div>
+									<a class="message-tab-line-right-title" id="message_a_8"></a>
+									<span class="message-time"></span>
+								</div>
+							</div>
+						</div>
+						<div class="course-tab">
+							<div class="course-tab-line">
+								<span class="course-tab-line-span"><span style="width:60px;float:left">功能教程</span><i class="icon-video"></i></span>
+								<a class="course-tab-line-title"></a>
+								<a class="course-more">更多>></a>
+							</div>
+							<div class="course-tab-line">
+								<span class="course-tab-line-span"><span style="width:60px;float:left">实战宝典</span><i class="icon-video"></i></span>
+								<a class="course-tab-line-title">Level2分时突破</a>
+								<a class="course-more">更多>></a>
+							</div>
+							<div class="course-tab-line">
+								<span class="course-tab-line-span"><span style="width:60px;float:left">实战宝典</span><i class="icon-video"></i></span>
+								<a class="course-tab-line-title">Level2盘口功能</a>
+								<a class="course-more">更多>></a>
+							</div>
+							<div class="course-tab-line">
+								<span class="course-tab-line-span"><span style="width:60px;float:left">实战宝典</span><i class="icon-video"></i></span>
+								<a class="course-tab-line-title">Level2实战运用资金仓位</a>
+								<a class="course-more">更多>></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="ad-module">
+				<div class="main-content">
+					<!-- 轮播容器 -->
+					<div class="slideshow">
+						<!-- 图片 -->
+						<div class="slideshow-box" id="slideshow_box">
+							<a href="http://sd.10jqka.com.cn/index/index.html" target="_blank" class="slideshow-box-a"><img class="slideshow-box-img" src="http://u.thsi.cn/fileupload/data/Level/2016/99fe7f2b173d6e3c2a046a3c41e55c4b.png"></a>
+						</div>
+						<!-- 左右操作按钮 -->
+						<div class="slideshow-btn-left">&lt;</div>
+						<div class="slideshow-btn-right">&gt;</div>
+						<!-- 全局点 -->
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+<!-- 	<script src="../common/scripts/jquery-1.7.1.min.js"></script>
+	<script src="../common/scripts/highcharts-4.1.5.min.js"></script>
+	<script src="../common/scripts/json2.min.js"></script>
+	<script src="../common/scripts/ta.min.js"></script>
+	<script src="../common/scripts/jquery.clientlogin.min.js"></script>
+	<script src="../common/scripts/screenerror.min.js"></script>
+	<script src="../common/scripts/sea.min.js"></script> -->
+	<!-- <script src="js/app.min.js"></script> -->
+	<script>
+	// $(function() {
+	// 	seajs.use('./js-dev/app');
+	// 	// seajs.use('dist/app');
+	// });
+	</script>
+	<script src="pk.js"></script>
+</body>
+</html>

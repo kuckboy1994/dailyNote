@@ -32,21 +32,6 @@ gulp.task("copyfiles",function(){
 ## `pipe()` 函数
 pipe() 就是一个传送带,他帮你传送上一个功能处理好的东西到下一个地方去
 
-## 多个独立的任务
-假设有以下代码,一部分代码是为了压缩 js,另一部分代码是为了压缩 css
-``` javascript
-gulp.task('test', function() {
-    gulp.src('src/js/*.js')
-        .pipe(uglify()) //压缩js
-        .pipe(gulp.dest('dist/js'));
-    gulp.src('src/css/*.css')
-        .pipe(cleanCSS()) //压缩css
-        .pipe(gulp.dest('dist/css'));
-});
-```
-上面这段代码里面,两个过程并不会按照顺序执行,也就是说,gulp并不会等你压缩完 js 再压缩 css.因为上面两个过程是 **并发执行** 的.
-
-
 ## 传送带里的东西
 我们可以通过监听 data 事件来查看所谓的 "流" 当中,到底流的是什么。
 ``` javascript
@@ -192,5 +177,4 @@ cb(null,file); //其中第一个参数是用来抛出错误的
 ```
 
 # 参考
-- 参考 [Gulp的执行顺序](http://trickyedecay.me/archives/9/)
-- 参考 [Gulp <我又重新认识了它>](http://www.trickyedecay.me/archives/17/)
+- 本文参考 [Gulp <我又重新认识了它>](http://www.trickyedecay.me/archives/17/)
