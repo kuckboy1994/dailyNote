@@ -84,18 +84,104 @@ function addmilk(){
         cb();
     });
 }
+//////////////////////
+// 复制整个js路径下的代码
+// 创建pk.js
+// 修改html文件
+// 修改pk.js的内容
+//////////////////////
+
+var gulp = require('gulp');
+var rename = require('gulp-rename');
+
+var template = '"use strict";\
+function isIE() {\
+	if (!!window.ActiveXObject || "ActiveXObject" in window)\
+		return true;\
+	else\
+		return false;\
+}\
+if (isIE()) {\
+    $IEContent\
+} else {\
+    $ChromeContent\
+}\
+function loadScript (src, callback) {\
+	var body= document.getElementsByTagName("body")[0];\
+	var script= document.createElement("script");\
+	script.type= "text/javascript";\
+	script.onload = script.onreadystatechange = function() {\
+	    if (!this.readyState || this.readyState === "loaded" || this.readyState === "complete") {\
+	        callback ? callback() : "";\
+	        script.onload = script.onreadystatechange = null;\
+	    }\
+	};\
+	script.src= src;\
+	body.appendChild(script);\
+}';
 
 
+/**
+ * 需要拷贝的路径，自己手动配置
+ * @type {Array}
+ */
+var basePath = ['js', 'js-dev'];
+var enterFile = ['index.html'];
+var ieContent = '';
+var chromeContent = '';
+
+/**
+ * 拷贝文件
+ * @return {[type]} [description]
+ */
 gulp.task("copyDir",function(){
-    gulp.src("./*/*.js")
-        .pipe(gulp.dest("./js-cef/"));
-    console.log(gulp);
+    for (var i = 0; i < basePath.length; i++) {
+        gulp.src("./" + basePath[i] + "/**/*.js")
+            .pipe(gulp.dest("./" + basePath[i] + "-cef/"));
+    }
 });
 
-gulp.task("copyfiles2",function(){
-    return gulp.src("/src/*.*")
-               .pipe(gulp.dest("/dist"));
+/**
+ * 获取文件中script的内容
+ * @return {[type]} [description]
+ */
+function getScriptContent () {
+    return through.obj(function (file, enc, cb) {
+        var str = file.contents.toString('utf-8');
+        // console.log(str);
+        console.log(str.length);
+        // file.contents = new Buffer(str);
+        // this.push(file);
+        cb();
+    });
+}
+// <script[^>]*>.*(?=<\/script>)<\/script>
+// http://tool.oschina.net/regex/
+
+
+/**
+ * 对文件添加内容
+ * @return {[type]} [description]
+ */
+function addCotents(){
+    return through.obj(function (file, enc, cb) {
+        var str = file.contents.toString('utf-8');
+        str = template;
+        file.contents = new Buffer(str);
+        this.push(file);
+        cb();
+    });
+}
+
+gulp.task("createPKjs", function () {
+    for (var i = 0; i < enterFile.length; i++) {
+        gulp.src("./" + enterFile[i])
+            .pipe(getScriptContent())
+            .pipe(addCotents())
+            .pipe(rename("pk2.js"))
+            .pipe(gulp.dest("./"));
+    }
 });
 
 // =========== default ====================
-gulp.task('default', ['copyDir']);
+gulp.task('default', ['copyDir', 'createPKjs']);
