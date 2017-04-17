@@ -102,7 +102,6 @@ function siblingCheck( a, b ) {
   return a ? 1 : -1;
 }
 
-//
 /**
  * 函数功能简述
  * 具体描述一些细节
@@ -196,6 +195,10 @@ var postId = 1;
 var postId = 1;
 // end add
 ```
+
+## 工具（插件）
+- sublime Text [DocBlockr-github](https://github.com/adambullmer/sublime_docblockr_python)
+- Atom [docblockr-github](https://github.com/nikhilkalige/docblockr) [docblockr](https://atom.io/packages/docblockr)
 
 ## 参考
 - [编程注释规范](http://www.jianshu.com/p/822aa0077595)
