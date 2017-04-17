@@ -209,3 +209,4 @@ var postId = 1;
 - [代码注释规范](http://www.cnblogs.com/yiyumeng/archive/2012/01/18/2325298.html)
 - [为何 Emacs 和 Vim 被称为两大神器](https://linuxtoy.org/archives/why-emacs-vim-good.html)
 - [用 Tab 还是 Space？谷歌程序员分析了10亿份代码](http://blog.jobbole.com/105381/)
+- [那些令人喷饭的代码注释](http://kb.cnblogs.com/page/206954/)
