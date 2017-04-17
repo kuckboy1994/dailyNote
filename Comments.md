@@ -173,6 +173,9 @@ function siblingCheck( a, b ) {
 // TODO(shanchao@myheixn.com): Use a "*" here for concatenation operator.
 // TODO(keke@myhexin.com) change this to use relations.
 ```
+全局查询
+代码评审 
+
 
 ### 多人合作注释
 同一个文件的代码可能被多个人修改，这个时候需要标识出谁改动了哪些部分。
