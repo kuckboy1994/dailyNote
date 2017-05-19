@@ -3,4 +3,11 @@
  * Import this file using the following HTML or equivalent:
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
 
-@import "compass/reset";
+// @import "compass/reset";
+
+
+$link-color: red;
+$link_color: blue;
+a {
+    color: $link_color;
+}
