@@ -2,7 +2,7 @@
 - SASS是一种CSS的开发工具，提供了许多便利的写法，大大节省了设计者的时间，使得CSS的开发，变得简单和可维护。
 
 ## 安装
-- 安装ruby，sass是由ruby编写的。
+- 安装ruby，sass是由ruby编写的。mac自带ruby。
 - 运行命令安装sass，mac下加上sudo
 
 ```
@@ -16,7 +16,14 @@ gem install sass
 - 将 `.scss` 文件转 `.css` 代码。
 
 ```
-sass test.scss test.css
+//单文件转换命令
+sass input.scss output.css
+
+//单文件监听命令
+sass --watch input.scss:output.css
+
+//如果你有很多的sass文件的目录，你也可以告诉sass监听整个目录：
+sass --watch app/sass:public/stylesheets
 ```
 
 ## 编译风格
@@ -27,7 +34,17 @@ sass test.scss test.css
 - 生产环境中，一般使用最后一个选项。
 
 ```
-sass --style compressed test.sass test.css
+//编译格式
+sass --watch input.scss:output.css --style compact
+
+//编译添加调试map
+sass --watch input.scss:output.css --sourcemap
+
+//选择编译格式并添加调试map
+sass --watch input.scss:output.css --style expanded --sourcemap
+
+//开启debug信息
+sass --watch input.scss:output.css --debug-info
 ```
 
 ## 监听某个文件或目录，一旦源文件有变动，就自动编译。
@@ -105,7 +122,115 @@ a {
 　　}
 ```
 
+- 使用@include命令调用这个`mixin`。
+
+```sass
+div {
+	@include left;
+}
+```
+- mixin的强大之处，在于可以指定参数和缺省值。
+
+```
+@mixin left($value: 10px) {
+　　float: left;
+　　margin-right: $value;
+}
+```
+
+- 下面是一个mixin的实例，用来生成浏览器前缀。
+
+```
+　　@mixin rounded($vert, $horz, $radius: 10px) {
+　　　　border-#{$vert}-#{$horz}-radius: $radius;
+　　　　-moz-border-radius-#{$vert}#{$horz}: $radius;
+　　　　-webkit-border-#{$vert}-#{$horz}-radius: $radius;
+　　}
+```
+
 ## 颜色函数
+
+
+
+
+## 插入文件
+- @import命令，用来插入外部文件。
+
+```
+@import "path/filename";
+```
+可以省略.sass  
+- 如果插入的是.css文件，则等同于css的import命令。
+
+```
+@import "foo.css";
+```
+
+
+## 条件语句
+- @if可以用来判断：
+
+```
+　　p {
+　　　　@if 1 + 1 == 2 { border: 1px solid; }
+　　　　@if 5 < 3 { border: 2px dotted; }
+　　}
+```
+- 配套的还有@else命令：
+
+```
+　　@if lightness($color) > 30% {
+　　　　background-color: #000;
+　　} @else {
+　　　　background-color: #fff;
+　　}
+```
+- `@if` 后面跟 `{}` 即表示判断语句的结束。
+
+## 循环语句
+- SASS支持for循环：
+
+```
+　　@for $i from 1 to 10 {
+　　　　.border-#{$i} {
+　　　　　　border: #{$i}px solid blue;
+　　　　}
+　　}
+```
+- 也支持while循环：
+
+```
+　　$i: 6;
+　　@while $i > 0 {
+　　　　.item-#{$i} { width: 2em * $i; }
+　　　　$i: $i - 2;
+　　}
+```
+- each命令，作用与for类似：
+
+```
+　　@each $member in a, b, c, d {
+　　　　.#{$member} {
+　　　　　　background-image: url("/image/#{$member}.jpg");
+　　　　}
+　　}
+```
+
+
+## 自定义函数
+- SASS允许用户编写自己的函数。
+
+```
+　　@function double($n) {
+　　　　@return $n * 2;
+　　}
+　　#sidebar {
+　　　　width: double(5px);
+　　}
+```
+
+
+
 
 
 ## 变量使用下划线和中划线都是一样的

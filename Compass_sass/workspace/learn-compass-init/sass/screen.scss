@@ -6,8 +6,12 @@
 // @import "compass/reset";
 
 
-$link-color: red;
-$link_color: blue;
-a {
-    color: $link_color;
+article {
+  ~ article { border-top: 1px dashed #ccc }
+  > section { background: #eee }
+  dl > {
+    dt { color: #333 }
+    dd { color: #555 }
+  }
+  nav + & { margin-top: 0 }
 }
