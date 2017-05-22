@@ -1,16 +1,22 @@
 # DOCTYPE
-- <!doctype>声明必须处于HTML文档的头部，在标签之前。告知浏览器的解析器用什么文档标准解析这个文档。DOCTYPE不存在或格式不正确会导致文档以兼容模式呈现。
+- <!DOCTYPE>声明必须处于HTML文档的头部，在标签之前。告知浏览器的解析器用什么文档标准解析这个文档。DOCTYPE不存在或格式不正确会导致文档以兼容模式呈现。
 - 标准模式的排版和JS运作模式都是以该浏览器支持的最高标准运行。在兼容模式中，页面以宽松的向后兼容的方式显示,模拟老式浏览器的行为以防止站点无法工作。
 - DOCTYPE不存在或格式不正确会导致文档以标准模式呈现
--
 
-## HTML5 为什么只需要写<!doctype> ？
+
+## HTML5 为什么只需要写<!DOCTYPE html>?
 - HTML5不基于 SGML(标准通用标记语言)，因此不需要对DTD(文档类型定义(Document Type Definition))进行引用，但是需要doctype来规范浏览器的行为（让浏览器按照它们应该的方式来运行）。
 - 而HTML4.01基于SGML,所以需要对DTD进行引用，才能告知浏览器文档所使用的文档类型。
 
 # head
+## title
 
 ## meta
+- charset 页面的字符编码 —— 最好写在title之前，否则title会乱码
+- `<meta name="keywords" content="">`
+- `<meta name="description" content="">`
+- `<meta name="viewport" content="width=devive-width">`
+
 ```html
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -39,14 +45,25 @@ scheme | some_text | 定义用于翻译content属性值的格式
 谷歌做了个外挂：Google Chrome Frame(谷歌内嵌浏览器框架GCF)。这个插件可以让用户的IE浏览器外不变，但用户在浏览网页时，实际上使用的是Google Chrome浏览器内核，而且支持IE6、7、8等多个版本的IE浏览器。
 
 ## link
+- 可以引入 favicon.ico 网页的图标， 默认不用设置
+- 样式文件
+
+## style
+- 样式内容
+
 ## script
+- js代码内容
+
+## html标签简介
+![](HTML/images/1.png)
+
 
 # body
+- 页面内容容器
 
 # 块级元素
 
 ## address - 地址
-
 ## blockquote - 块引用
 ## center - 举中对齐块
 ## dir - 目录列表
@@ -73,24 +90,29 @@ scheme | some_text | 定义用于翻译content属性值的格式
 
 # 行内元素
 ## a - 锚点
+- `<a href="#css">css</a>`
+- `<a href="mailto:kuckboy@163.com">kuckboy</a>`
+- `<a href="tel:1232379123">kuckboy</a>`
 ## abbr - 缩写
 ## acronym - 首字
 ## b - 粗体(不推荐)
+## i - 斜体
 ## bdo - bidi override
 ## big - 大字体
 ## br - 换行
 > &lt;br/&gt;
 
 ## cite - 引用
+## q - 短引用
 ## code - 计算机代码(在引用源码的时候需要)
 ## dfn - 定义字段
-## em - 强调
-## i - 斜体
+## em - 斜体强调
+
 ## img - 图片
 ## input - 输入框
 ## kbd - 定义键盘文本
 ## label - 表格标签
-## q - 短引用
+
 ## s - 中划线(不推荐)
 ## samp - 定义范例计算机代码
 ## select - 项目选择
@@ -130,3 +152,6 @@ Localstorage是**html5存储数据**的方式，在HTML5中，本地存储是一
 
 ## html页面的加载顺序
 html文档加载是从上到下加载，只与标签的上下顺序有关，与标签选用无关。
+
+## 标签属性
+- title 鼠标放置在标签上方几秒内会显示title属性中的内容
