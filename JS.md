@@ -45,3 +45,16 @@ function myFunction()
 ## IE 6/7/8 不支持事件捕获
 
 ## domContentLoaded事件早于onload事件
+
+
+## 关闭浏览器标签或关闭浏览器
+- 代码
+```javascript
+// ie6和7关闭的时候会提示。
+window.opener = null;       // 关闭ie6不提示
+window.open('', '_self', '');   // 关闭ie7不提示
+window.close();   // 关闭操作
+```
+- firefox 不能关闭  
+  在地址栏输入 `about:config`
+  找到 `dom.allow_scripts_to_close_windows` 这项并改为true。
