@@ -37,6 +37,35 @@ clear 定义了元素的哪边上不予许出现浮动元素。
 >我们认为，正常流中的大多数元素都会足够高以包含其后代元素（包括外边距），如果一个元素的上下外边距时父元素的height的百分数，就可能导致一个无限循环，父元素的height会增加，以适应后代元素上下外边距的增加，而相应的，上下外边距因为父元素height的增加也会增加。
 
 
+## background
+- background-color
+
+```
+background-color: #fff;
+```
+
+- background-image
+
+```
+background-image: url(***);
+```
+
+- background-position
+
+- background-repeat
+
+- background-size
+
+- background-attachment  
+决定背景是在视口中固定的还是随包含它的区块滚动的
+
+```
+background-attachment: scroll;
+background-attachment: fixed;
+background-attachment: local;
+
+background-attachment: inherit;
+```
 
 
 

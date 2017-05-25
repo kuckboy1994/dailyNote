@@ -58,3 +58,15 @@ window.close();   // 关闭操作
 - firefox 不能关闭  
   在地址栏输入 `about:config`
   找到 `dom.allow_scripts_to_close_windows` 这项并改为true。
+
+## 获取Object对象长度
+```
+var nums = {
+  "a": "1",
+  "b": "2",
+  "c": "3"
+};
+var arr = Object.keys(nums);
+console.log(arr); //["a", "b", "c"]
+console.log(arr.length) // 3
+```
