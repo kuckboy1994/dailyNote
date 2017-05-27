@@ -1,4 +1,12 @@
+# 不同的编辑器会生成不懂的.XX文件
 .DS_Store
+.vscode/    
+
+# 包文件
 node_modules/
-/demo.html
+
+# 测试文件
+/demo.html  
+
+# sass 生成的缓存文件
 .sass-cache/
