@@ -1,3 +1,113 @@
+## 类型
+- Undefined
+  
+- Null
+- Boolean
+- String
+- Number
+- Object  
+  ```js
+	var obj = {};
+	var arr = [];
+	var date = new Date();
+	```
+	- 对象类型
+	![](JS/images/1.png)
+	- 如何复制一个对象？
+	- 隐式类型转换
+	  1. 数字运算符
+		2. .
+		3. if语句
+		4. ==
+  - 隐式类型转换结果
+	  ![](JS/images/2.png)
+- Undefined、Null、Boolean、String、Number 为原始（值）类型，直接量定义的自变量为原始类型。
+
+## 类型识别
+- typeof  
+  可以识别标准类型(Null除外)  
+	不能识别具体的对象类型(Function除外)
+- instanceof  
+	```js
+	// 能够判别内置对象类型  
+	[] instanceof Array;	// true
+	/\d/ instanceof RegExp;	//true
+	// 不能判别原始类型  
+	1 instanceof Number;	// false
+	"jerry" instanceof String	// false
+	// 能够判别自定义对象类型
+	```
+- Object.prototype.toString.call
+	```js
+	function type(obj) {
+		return Object.prototype.toString.call(obj).slice(8, -1);
+	}
+	type(1)	// "Number"
+	type("abc")	// "String"
+	type(true)	// "Boolean"
+	type(function() {}) // "Function"
+	```
+	- 识别标准类型以及内置(build-in)对象类型
+	- 不能识别自定义对象类型
+
+- constructor  
+  - 判断原始类型
+	```js
+	// 判断原始类型
+	"jerry".constructor === String		// true
+	(1).constructor === Number				// true
+	true.constructor === Boolean			// true
+	({}).constructor === Object				// true
+	// 判断内置对象类型
+	new Date().constructor === Date		// true
+	[].constructor === Array					// true
+	// 判断自定义对象
+	function Persion(name) {
+		this.name = name;
+	}
+	new Persion("jerry").constructor === Person 
+	```
+	 - 判别标准类型（Undefined/Null除外）
+	 - 判断内置对象类型
+	 - 判别自定义对象类型
+  - 封装方法
+	```js
+	function getConstructorName(obj){
+    return (obj===undefined || obj===null) ? obj : (obj.constructor&&obj.constructor.toString().match(/function\s*([^(]*)/)[1]);
+	}
+	```
+## 函数定义
+- 函数声明
+- 函数表达式
+- 函数实例化
+  定义的函数只能访问本地作用域和全局作用域
+
+## 函数调用
+- 函数调用模式 add(1);
+- 方法调用模式 obj.add(2);
+- 构造函数调用模式 new Function(...);
+- Function.prototype.apply的使用
+  函数借用，函数冒充
+	```js
+	function Point (x, y)  {
+		this.x = x;
+		this.y = y;
+	}
+	Point.prototype.move = function (x, y) {
+		this.x = x;
+		this.y = y;
+	}
+	var p = new Point(0, 0);
+	p.move(2, 2);
+	var circle = {x:1, y:1, r:1};
+	p.move.apply(circle, [2, 1]);	// {x: 3, y:2, z:1}
+	```
+
+## 代码执行过程
+- 预解析
+  变量 变量声明 函数声明
+- 执行
+
 ## ECMAScript DOM
 
 ## “DOM2级事件” 事件流包括三个阶段：
