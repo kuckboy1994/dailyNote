@@ -83,10 +83,14 @@
   定义的函数只能访问本地作用域和全局作用域
 
 ## 函数调用
-- 函数调用模式 add(1);
-- 方法调用模式 obj.add(2);
-- 构造函数调用模式 new Function(...);
-- Function.prototype.apply的使用
+- 函数调用模式 add(1);  
+  this 指向全局对象
+- 方法调用模式 obj.add(2);  
+  this 指向方法调用者
+- 构造函数调用模式 new Function(...);  
+  this 指向被构造的对象
+- Function.prototype.apply的使用  
+  this 指向第一个参数
   函数借用，函数冒充
 	```js
 	function Point (x, y)  {
@@ -102,6 +106,16 @@
 	var circle = {x:1, y:1, r:1};
 	p.move.apply(circle, [2, 1]);	// {x: 3, y:2, z:1}
 	```
+
+## 闭包
+- 保存函数的执行状态
+- 封装
+- 性能优化
+[连接](http://mooc.study.163.com/learn/NEU-1000054003?tid=2001253000#/learn/content?type=detail&id=2001498021&cid=2001483037)
+
+## bind
+
+## 柯里化
 
 ## 代码执行过程
 - 预解析
