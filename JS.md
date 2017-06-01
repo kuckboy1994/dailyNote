@@ -1,6 +1,5 @@
 ## 类型
 - Undefined
-  
 - Null
 - Boolean
 - String
@@ -79,7 +78,7 @@
 ## 函数定义
 - 函数声明
 - 函数表达式
-- 函数实例化
+- 函数实例化  
   定义的函数只能访问本地作用域和全局作用域
 
 ## 函数调用
@@ -109,16 +108,209 @@
 
 ## 闭包
 - 保存函数的执行状态
+```js
+/**
+ * 闭包使用举例1
+ * 将字符串中的一些特定字符按顺序用数组中的元素替换，例如：
+ * var arr = ['c','f','h','o'];
+ * var str = 'ab4de8g4ijklmn7';
+ * 替换后 str == 'abcdefghijklmno';
+ * replace的用法请参考https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/replace
+**/
+var arr = ['c','f','h','o'];
+var str = 'ab4de8g4ijklmn1';
+console.log(str);
+ 
+var func = (function(){
+  // count变量会保存在闭包作用域内，表示func被调用次数（即正在替换第几个字符）
+  var count = 0; 
+  return function(){
+    return arr[count++]; 
+  }
+})();
+ 
+str = str.replace(/\d/g, func)
+console.log(str);
+```
 - 封装
+```js
+/**
+闭包使用举例2 -- 封装
+1.暴露type类型和start, stop, getStatus方法
+2.隐藏status，light对象状态
+**/
+var Car = function(type){
+  var status = "stop",
+      light = "off";
+  return {
+    type: type,
+    start: function(){
+      status = "driving";
+      light = "on";
+    },
+    stop: function(){
+      status = "stop";
+      light = "off";
+    },
+    getStatus: function(){
+      console.log(type + " is " + status + " with light " + light);
+    }
+    }
+}
+ 
+var audi = new Car("audi");
+audi.start();
+audi.getStatus();
+audi.stop();
+audi.getStatus();
+```
 - 性能优化
-[连接](http://mooc.study.163.com/learn/NEU-1000054003?tid=2001253000#/learn/content?type=detail&id=2001498021&cid=2001483037)
+```js
+/**
+闭包使用举例3 -- 性能优化1
+减少函数定义时间和内存消耗
+**/
+// 不使用闭包
+function sum(i, j) {
+  var add = function(i, j){
+    return i+j;
+  }
+  return add(i, j)
+}
+var startTime = new Date();
+for(var i = 0; i< 1000000; i++) {
+  sum(1,1);
+}
+var endTime = new Date();
+console.log(endTime - startTime);
+ 
+// 使用闭包
+var sum = (function() {
+  var add = function(i, j){
+    return i+j;
+  }
+  return function(i,j) {
+    add(i, j);
+  }
+})()
+var startTime = new Date();
+for(var i = 0; i< 1000000; i++) {
+  sum(1,1);
+}
+var endTime = new Date();
+console.log(endTime - startTime);
+```
+```js
+/**
+闭包使用举例3 -- 性能优化2
+普通递归函数跟使用闭包记录调用返回结果的递归函数调用次数对比
+**/
+// 普通递归函数
+var factorial = (function(){
+  var count = 0;
+  var fac = function(i){
+    count++;
+    if (i==0) {
+      console.log('调用次数：' + count); 
+      return 1;
+    }
+    return i*factorial(i-1);
+  }
+  return fac;
+})();
+for(var i=0;i<=10;i++){
+  console.log(factorial(i)); 
+}
+ 
+// 使用闭包记录调用返回结果的递归函数 -- 记忆函数
+var factorial = (function(){
+  var memo = [1];
+  var count = 0;
+  var fac = function(i){
+    count++;
+    var result = memo[i];
+    if(typeof result === 'number'){
+      console.log('调用次数：' + count); 
+      return result;
+    } 
+    result = i*fac(i-1);
+    memo[i] = result;
+    return result;
+  }
+  return fac;
+})();
+for(var i=0;i<=10;i++){
+  console.log(factorial(i)); 
+}
+```
 
 ## bind
-
+```js
+function Point(x, y){
+    this.x = x;
+    this.y = y;
+}
+Point.prototype.move = function(x, y) {
+    this.x += x;
+    this.y += y;
+}
+var p = new Point(0,0);
+var circle = {x:1, y:1, r:1};
+var circleMove = p.move.bind(circle, 2, 1);
+circleMove();
+```
 ## 柯里化
+```js
+/*
+1. 函数柯里化通常是指把接受多个参数的函数变换成接受一个单一参数（最初函数的第一个参数）的并且返回一个接受余下的参数而且返回结果的新函数的技术。
+*/
+// // 1. 最简单的柯里化
+// // sum函数接受三个参数，并返回求和结果
+// var sum = function(a,b,c) {
+//     return a+b+c;
+// }
+// // // 最简单柯里化的sum函数
+// var sum_curry = function(a){
+//     return function(b,c){
+//         return a+b+c;
+//     }
+// }
+// /*
+ 
+/*
+2. 更泛化的定义是指给函数分步传递参数，每次函数接受部分参数后应用这些参数，并返回一个函数接受剩下的参数，这中间可嵌套多层这样的接受部分参数的函数，直至返回最后结果。归纳一下就是逐步传参，逐步缩小函数的适用范围，逐步求解的过程。
+*/
+// // 2. 泛化的柯里化
+// // currying实现将一个函数转变为柯里化函数
+// var currying = function (fn) {
+//    var _args = [];
+//    return function () {
+//     if (arguments.length === 0) {
+//       // 实现最终的计算
+//       return fn.apply(this, _args); 
+//     }
+//     // 这里只是简单的将参数缓存起来（用于解释柯里化概念，并非实际应用场景）
+//     Array.prototype.push.apply(_args, [].slice.call(arguments)); 
+//     return arguments.callee;
+//    }
+// };
+// // sum函数接受任意参数，并返回求和结果
+// var sum=function () {
+//    var total = 0;
+//    for (var i = 0, c; c = arguments[i++];) {
+//        total += c;
+//    }
+//    return total;
+// };
+// // 或得一个泛化柯里化的sum函数
+// var sum_curry = currying(sum); 
+// sum_curry(1)(2,3);
+// sum_curry(4);
+// console.log(sum_curry());
+```
 
 ## 代码执行过程
-- 预解析
+- 预解析  
   变量 变量声明 函数声明
 - 执行
 
