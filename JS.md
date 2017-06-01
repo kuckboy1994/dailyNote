@@ -46,7 +46,7 @@
 	type(true)	// "Boolean"
 	type(function() {}) // "Function"
 	```
-	- 识别标准类型以及内置(build-in)对象类型
+	- 识别标准类型以及内置(build-in)对象类型
 	- 不能识别自定义对象类型
 
 - constructor  
