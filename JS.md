@@ -12,9 +12,9 @@
 	```
 	- 对象类型
 	![](JS/images/1.png)
-	- 如何复制一个对象？
-	- 隐式类型转换
-	  1. 数字运算符
+	- 如何复制一个对象？
+	- 隐式类型转换
+	  1. 数字运算符
 		2. .
 		3. if语句
 		4. ==
@@ -350,10 +350,10 @@ function myFunction()
   - \b: 单词边界 `/\bis\b/` demo /\bis\b/.test('that is tom'); // true
 - 字符类
   - 匹配一类字符中的`一个`
-  - [abc]: a或b或c
-  - [0-9]: 一个数字 [^0-9]: 非数字的一个字符
-  - [a-z]: 一个字母
-  - .    : 任一字符（换行除外）
+  - `[abc]` : a或b或c
+  - `[0-9]` : 一个数字 [^0-9]: 非数字的一个字符
+  - `[a-z]` : 一个字母
+  - `.`     : 任一字符（换行除外）
 - 元字符
   - 具有特殊意义的字符
     - ^、$、\b
@@ -384,10 +384,10 @@ function myFunction()
   - 获取匹配的字符串
 - str.replace()
   - 替换一个子串
-  ```javascript
+```javascript
 var str = 'The price of tomato is 5.';
 str.replace(/(\d+)/,'$1.00');
-  ```
+```
 - regexpObj.exec(str)
   - 更强大的检索
     - 更详尽的结果: index
