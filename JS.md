@@ -131,6 +131,36 @@ var func = (function(){
  
 str = str.replace(/\d/g, func)
 console.log(str);
+
+
+// 保存执行状态
+//<ul>
+//		<li>0</li>
+//		<li>1</li>
+//		<li>2</li>
+//		<li>3</li>
+//		<li>4</li>
+//</ul>
+var li = document.getElementsByTagName("li");
+for (var i = 0; i < li.length; i++) {
+		li[i].onclick = (function (i) {
+				return function () {
+						alert(i)
+				}
+		})(i);
+}
+
+
+var li = document.getElementsByTagName("li");
+function foo(i) {
+		return function () {
+				alert(i);
+		}
+}
+for (var i = 0; i < li.length; i++) {
+		li[i].onclick = foo(i);
+}
+
 ```
 - 封装
 ```js
@@ -244,6 +274,15 @@ for(var i=0;i<=10;i++){
 }
 ```
 
+## 原型继承和类继承有什么区别？
+- 一：类继承
+JS中其实是没有类的概念的，所谓的类也是模拟出来的。特别是当我们是用new 关键字的时候，就使得“类”的概念就越像其他语言中的类了。类式继承是在函数对象内调用父类的构造函数，使得自身获得父类的方法和属性。call和apply方法为类式继承提供了支持。通过改变this的作用环境，使得子类本身具有父类的各种属性。
+- 二：原型继承
+它有别于类继承是因为继承不在对象本身，而在对象的原型上（prototype）。每一个对象都有原型，在浏览器中它体现在一个隐藏的__proto__属性上。在一些现代浏览器中你可以更改它们。比如在zepto中，就是通过添加zepto的fn对象到一个空的数组的__proto__属性上去，从而使得该数组成为一个zepto对象并且拥有所有的方法。话说回来，当一个对象需要调用某个方法时，它回去最近的原型上查找该方法，如果没有找到，它会再次往下继续查找。这样逐级查找，一直找到了要找的方法。 这些查找的原型构成了该对象的原型链条。原型最后指向的是null。我们说的原型继承，就是将父对像的方法给子类的原型。子类的构造函数中不拥有这些方法和属性。
+- 三：对比
+和原型对比起来，构造函数（类）式继承有什么不一样呢？首先，构造函数继承的方法都会存在父对象之中，每一次实例，都回将funciton保存在内存中，这样的做法毫无以为会带来性能上的问题。其次类式继承是不可变的。在运行时，无法修改或者添加新的方法，这种方式是一种固步自封的死方法。而原型继承是可以通过改变原型链接而对子类进行修改的。另外就是类式继承不支持多重继承，而对于原型继承来说，你只需要写好extend对对象进行扩展即可。
+- 转载自：http://www.aiweibang.com/yuedu/49097778.html。内有详细代码讲解。
+
 ## bind
 ```js
 function Point(x, y){
@@ -313,6 +352,75 @@ circleMove();
 - 预解析  
   变量 变量声明 函数声明
 - 执行
+
+## 设置对象的原型
+- Object.create(proto[,propertiesObject])
+  - proto 一个对象，作为新创建对象的原型
+	- propertiesObject 对象的属性定义
+
+## 设置对象的原型-实例
+![](JS/images/3.png)
+
+```js
+var landRover = new Car('landRover');
+// 解析为如下代码
+var landRover = new Object();
+landRover.__proto__ = Car.prototype;
+Car.apply(landRover, arguments);
+```
+
+## 静态作用域
+- 又称词法作用域
+- 由程序定义位置决定  
+```js
+var x = 10;
+function foo () {
+	alert(x);
+}
+function bar () {
+	var x = 20;
+	foo();
+}
+bar();
+```
+预编译的时候就决定的，一个全局作用域，foo一个作用域，bar一个作用域，foo中没有x，取到全局作用域中的x = 10，输出10.
+
+## 动态作用域
+```js
+var x = 10;
+function foo () {
+	alert(x);
+}
+function bar () {
+	var x = 20;
+	foo();
+}
+bar();
+```
+通过栈来模拟：
+| 栈        |
+| ------------- |
+| 从上到下取，取到20， 输出20 |
+| 调用foo |
+| x = 20 |
+| 调用bar() |
+| function bar |
+| function foo |
+| x = 10 |
+
+## js变量作用域
+- js使用静态作用域
+- js没有块级作用域（全局作用域，函数作用域等）
+- ES5中使用词法环境管理静态作用域。
+
+## 词法环境
+![](JS/images/4.png)
+- 环境记录
+  - 形参
+	- 函数声明
+	- 变量
+	- ...
+- 环境记录初始化 —— 声明提前
 
 ## ECMAScript DOM
 
@@ -505,5 +613,30 @@ if(!window.JSON){
 	}
 }
 ```
+
+## 全局变量的创建方法
+- 最外面定义。不能使用 `delete` 删除。
+```js
+var test = 'some value';
+```
+- 使用 window. 创建。可以使用 `delete` 删除。
+```js
+window.test = 'some value';
+```
+- 不使用 var 创建。可以使用 `delete` 删除。
+```js
+(function () {
+	var a;
+	test = 'some value';
+})();
+```
+
+## 全局变量
+```js
+function todo () {
+	var a = test = 'some value';
+}
+```
+
 
 ## end
