@@ -634,7 +634,7 @@ window.test = 'some value';
 ## 全局变量
 ```js
 function todo () {
-	var a = test = 'some value';
+	var a = test = 'some value';	// test 是全局变量
 }
 ```
 
