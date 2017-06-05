@@ -20,7 +20,7 @@
 		4. ==
   - 隐式类型转换结果
 	  ![](JS/images/2.png)
-- Undefined、Null、Boolean、String、Number 为原始（值）类型，直接量定义的自变量为原始类型。
+- Undefined、Null、Boolean、String、Number 为原始（值）类型，直接量定义的自变量为原始类型。
 
 ## 类型识别
 - typeof  
@@ -107,7 +107,7 @@
 	```
 
 ## 闭包
-- 保存函数的执行状态
+- 保存函数的执行状态
 ```js
 /**
  * 闭包使用举例1
@@ -162,7 +162,7 @@ for (var i = 0; i < li.length; i++) {
 }
 
 ```
-- 封装
+- 封装
 ```js
 /**
 闭包使用举例2 -- 封装
@@ -353,14 +353,14 @@ circleMove();
   变量 变量声明 函数声明
 - 执行
 
-## 设置对象的原型
+## 设置对象的原型
 - Object.create(proto[,propertiesObject])
   - proto 一个对象，作为新创建对象的原型
 	- propertiesObject 对象的属性定义
 
 ## 设置对象的原型-实例
 ![](JS/images/3.png)
-
+
 ```js
 var landRover = new Car('landRover');
 // 解析为如下代码
@@ -371,7 +371,7 @@ Car.apply(landRover, arguments);
 
 ## 静态作用域
 - 又称词法作用域
-- 由程序定义位置决定  
+- 由程序定义位置决定  
 ```js
 var x = 10;
 function foo () {
@@ -383,9 +383,9 @@ function bar () {
 }
 bar();
 ```
-预编译的时候就决定的，一个全局作用域，foo一个作用域，bar一个作用域，foo中没有x，取到全局作用域中的x = 10，输出10.
+预编译的时候就决定的，一个全局作用域，foo一个作用域，bar一个作用域，foo中没有x，取到全局作用域中的x = 10，输出10.
 
-## 动态作用域
+## 动态作用域
 ```js
 var x = 10;
 function foo () {
@@ -398,25 +398,25 @@ function bar () {
 bar();
 ```
 通过栈来模拟：
-| 栈        |
+| 栈        |
 | ------------- |
 | 从上到下取，取到20， 输出20 |
 | 调用foo |
 | x = 20 |
-| 调用bar() |
+| 调用bar() |
 | function bar |
 | function foo |
 | x = 10 |
 
 ## js变量作用域
-- js使用静态作用域
+- js使用静态作用域
 - js没有块级作用域（全局作用域，函数作用域等）
 - ES5中使用词法环境管理静态作用域。
 
 ## 词法环境
 ![](JS/images/4.png)
 - 环境记录
-  - 形参
+  - 形参
 	- 函数声明
 	- 变量
 	- ...
@@ -615,15 +615,15 @@ if(!window.JSON){
 ```
 
 ## 全局变量的创建方法
-- 最外面定义。不能使用 `delete` 删除。
+- 最外面定义。不能使用 `delete` 删除。
 ```js
 var test = 'some value';
 ```
-- 使用 window. 创建。可以使用 `delete` 删除。
+- 使用 window. 创建。可以使用 `delete` 删除。
 ```js
 window.test = 'some value';
 ```
-- 不使用 var 创建。可以使用 `delete` 删除。
+- 不使用 var 创建。可以使用 `delete` 删除。
 ```js
 (function () {
 	var a;

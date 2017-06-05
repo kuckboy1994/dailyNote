@@ -38,11 +38,20 @@ scheme | some_text | 定义用于翻译content属性值的格式
 **注：**  
 < meta http-equiv = "X-UA-Compatible" content = "IE=edge,chrome=1" />
 
-这是个是**IE8的专用标记**,用来指定IE8浏览器去模拟某个特定版本的IE浏览器的渲染方式(比如人见人烦的IE6)，以此来**解决部分兼容问题**，例如模拟IE7的具体方式如下：
+这是个是**IE8的专用标记**,用来指定IE8浏览器去模拟某个特定版本的IE浏览器的渲染方式(比如人见人烦的IE6)，以此来**解决部分兼容问题***，例如模拟IE7的具体方式如下：
 
-< meta http-equiv = "X-UA-Compatible" content = "IE=EmulateIE7" />
+< meta http-equiv = "X-UA-Compatible" content = "IE=7" />
 
 谷歌做了个外挂：Google Chrome Frame(谷歌内嵌浏览器框架GCF)。这个插件可以让用户的IE浏览器外不变，但用户在浏览网页时，实际上使用的是Google Chrome浏览器内核，而且支持IE6、7、8等多个版本的IE浏览器。
+
+- ie11 下浏览器叉叉去除
+```css
+input::-ms-clear{display : none;}
+```
+有的时候光使用css无效，需要配置时浏览器使用当前最高版本进行渲染
+```html
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+```
 
 ## link
 - 可以引入 favicon.ico 网页的图标， 默认不用设置
@@ -60,6 +69,8 @@ scheme | some_text | 定义用于翻译content属性值的格式
 
 # body
 - 页面内容容器
+
+
 
 # 块级元素
 
