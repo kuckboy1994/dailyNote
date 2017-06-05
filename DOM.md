@@ -198,10 +198,41 @@ elem.addEventListener('click', clickHandler, false);
   - 主体
 - 响应报文
  - 头行
-
+   - http版本
+   - 状态码
+   - 状态码描述
+   - HTTP/1.1 200 OK
  - 头部
+   - Expires(缓存的时间)
+     - Expires:Thu, 01 Jan 1970 00:00:00 GMT
+   - server(服务器)
+     - server: nginx
  - 主体
+   - html文件
 
+## 常用HTTP方法
+- ![](JS/images/6.png)
 
+## URL构成
+![](JS/images/7.png)
 
+## HTTP版本
+![](JS/images/8.png)
+
+## 常见的HTTP状态码
+![](JS/images/9.png)
+
+## ajax 
+![](JS/images/10.png)
+- open
+  ![](JS/images/11.png)
+- setRequestHeader
+  ![](JS/images/12.png)
+- send
+  ![](JS/images/13.png)
+  ![](JS/images/14.png)
+- 同源策略
+  ![](JS/images/15.png)
+- 跨域资源访问
+  ![](JS/images/16.png)
 ## end
