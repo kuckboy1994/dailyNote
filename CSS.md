@@ -67,9 +67,18 @@ background-attachment: local;
 background-attachment: inherit;
 ```
 
-
-
-
+<!-- 
+## 页面禁止选中
+```css
+moz-user-select: -moz-none;
+-moz-user-select: none;
+-o-user-select:none;
+-khtml-user-select:none;
+-webkit-user-select:none;
+-ms-user-select:none;
+user-select:none;
+```
+ -->
 
 
 

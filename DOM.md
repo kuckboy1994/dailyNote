@@ -65,31 +65,31 @@ var clickHandler = function (event) {
 }
 elem.addEventListener('click', clickHandler, false);
 ```
-- 属性
+- 属性
   - type 
     click
   - target(srcElement)
-    - 点击或被操作的对象
+    - 点击或被操作的对象
   - currentTarget
-    - 事件注册的对象
+    - 事件注册的对象
 - 方法
   - stopPropagation (阻止事件转播)
   ```js
   event.stopPropagation() (W3C)
   event.cancalBubble = true (IE)
   event.stopImmediatePropagation() (W3C)
-  // 效果和1相同，同时会阻止之后注册的事件
+  // 效果和1相同，同时会阻止之后注册的事件
   ```
   - preventDefault (默认行为)
   ```js
   Event.preventDefault() (W3C)
-  Event.returnValue = false (IE)
+  Event.returnValue = false (IE)
   ```
 ## 事件分类
 - ![](JS/images/5.png)
 - ![](JS/images/MouseEvent.png)
   - 属性
-    - clientX, clientY 距离浏览器的距离
+    - clientX, clientY 距离浏览器的距离
     - srceenX, srceenY 距离屏幕的距离
     - ctrlKey, shiftKey, altKey, metaKey
     - button(0,1,2)
@@ -98,7 +98,7 @@ elem.addEventListener('click', clickHandler, false);
       -mouse`move`->mouse`over`(A)->mouse`enter`(A)->mouse`move`->mouse`out`(A)->mouse`leave`(A)
     - 点击元素
       -mouse`down`->[mouse`move`]->mouse`up`->`click`
-    - 栗子：拖拽div  
+    - 栗子：拖拽div  
     HTML
     ```html
     <div id="div1"></div>
@@ -182,7 +182,7 @@ elem.addEventListener('click', clickHandler, false);
     - Accept-Encoding(接收类型编码方式)
       - Accept-Encoding:gzip,deflate,sdch
     - Accept-Language(浏览器端可以接收的类型)
-      - Accept-Language:en-US,en;q=0.8,zh-CN;
+      - Accept-Language:en-US,en;q=0.8,zh-CN;
     - Cache-Control(缓存的策略)
       - Cache-Control: no-cache
     - Connection()
@@ -193,12 +193,12 @@ elem.addEventListener('click', clickHandler, false);
       - Host: baidu.com
     - Pragma()
       - Pragma: no-cache
-    - User-Agent(当前浏览器的版本) 
+    - User-Agent(当前浏览器的版本) 
       - User-Agent: Mozilla/5.0(Windows NT 6.1; WOW64) AppleWebKit/537.36(KHTML, like Geoko) Chrome/41.0.2272.118 Safari/537.36
   - 主体
 - 响应报文
  - 头行
-   - http版本
+   - http版本
    - 状态码
    - 状态码描述
    - HTTP/1.1 200 OK
@@ -210,7 +210,7 @@ elem.addEventListener('click', clickHandler, false);
  - 主体
    - html文件
 
-## 常用HTTP方法
+## 常用HTTP方法
 - ![](JS/images/6.png)
 
 ## URL构成
