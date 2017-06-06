@@ -10,6 +10,3 @@ node_modules/
 
 # sass 生成的缓存文件
 .sass-cache/
-
-# quickMergePull
-/quickMergePull.cmd
