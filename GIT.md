@@ -1,3 +1,12 @@
+## github在线demo演示
+1. `http://htmlpreview.github.io/?` + github上的文件地址。
+2. 
+	- 创建 `gh-pages` 分支。
+	- `git checkout -b gh-pages` 创建 `gh-pages` 分支并切换到当前分支。
+	- `git push origin master:gh-pages` 把本地 `master` 分支的内容推送到远程的 `gh-pages` 分支上。
+	- 访问 `https://[用户名].github.io/[文件所在目录]`。如：`https://kuckboy1994.github.io/dailyNote/Layout/horizontally_1.html`
+
+
 ## git
 [Pro Git（中文版）](http://git.oschina.net/progit/)
 
