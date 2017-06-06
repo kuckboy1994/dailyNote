@@ -235,4 +235,181 @@ elem.addEventListener('click', clickHandler, false);
   ![](JS/images/15.png)
 - 跨域资源访问
   ![](JS/images/16.png)
+- Ajax请求GET方法的封装
+```js
+/*
+* Ajax异步请求GET方法封装
+* @param   url     {String}    请求资源的url
+* @param   options     {Object}    请求的查询参数
+* @param   callback    {Function}  请求的回调函数，
+*            接受XMLHttpRequest对象的reponseText属性作为参数
+* @return  void        {}      无返回值
+*/
+function get(url,options,callback) {
+    var xhr = new XMLHttpRequest();     //创建新XHR请求
+    xhr.onreadystatechange =function (callback){  //定义事件监听
+        //如果请求完成且成功
+        if(xhr.readyState == 4) {
+            if((xhr.status >=200 && xhr.status <300)||xhr.status == 304) {
+                callback(xhr.responseText);
+            } else {
+              alert('Request was unsuccessful: ' + xhr.status); 
+            }
+        }
+    }
+    xhr.open("GET", url+ "?" +serialize(options), true);    //异步GET请求
+    xhr.send(null);     //发送请求
+}
+ 
+/*
+* 编码函数，将查询参数对象序列化
+* @param  options     {Object}   查询参数对象
+* @return              {String}    查询字符串
+ */
+ 
+function serialize(options){
+    if(!options) return "" ; //一直返回字符串
+    var pairs = [];              //保存键值对
+    for(var name in options) {  //遍历参数对象
+        if(!options.hasOwnProperty(name)) continue;        //跳过继承属性
+        if(typeof options[name] === "function") continue;   //跳过方法
+        var value = options[name].toString();            //把值转换为字符串
+        name = encodeURIComponent(name);              //编码名字
+        value= encodeURIComponent(value);                 //编码值
+        pairs.push(name + '=' + value);                 //以“名=值”形式保存
+    }
+    return pairs.join('&');                                //返回以“&”连接的字符串
+}
+```
+- Ajax请求POST方法的封装
+```js
+/*
+* Ajax异步请求POST方法封装
+* @param   url         {String}    请求资源的url
+* @param   options     {Object}    请求的查询参数
+* @param   callback    {Function}  请求的回调函数，
+*            接受XMLHttpRequest对象的reponseText属性作为参数
+* @return  void        {}          无返回值
+*/
+function post(url,options,callback) {
+    var xhr = new XMLHttpRequest();     //创建新XHR请求
+    xhr.onreadystatechange =function (callback){  //定义事件监听
+        //如果请求完成且成功
+        if(xhr.readyState == 4) {
+            if((xhr.status >=200 && xhr.status <300)||xhr.status == 304) {
+                callback(xhr.responseText);
+            } else {
+              alert('Request was unsuccessful: ' + xhr.status); 
+            }
+        }
+    }
+    xhr.open("POST", url, true);  //异步POST请求
+    xhr.setRequestHeader("Content-Type",   //设置Content-Type
+        "application/x-www-form-urlencoded")
+    xhr.send(serialize(options));   //发送请求
+ 
+/*
+* 编码函数，将查询参数对象序列化
+* @param  options     {Object}   查询参数对象
+* @return              {String}    查询字符串
+ */
+ 
+function serialize(options){
+    if(!options) return "" ; //一直返回字符串
+    var pairs = [];              //保存键值对
+    for(var name in options) {  //遍历参数对象
+        if(!options.hasOwnProperty(name)) continue;        //跳过继承属性
+        if(typeof options[name] === "function") continue;   //跳过方法
+        var value = options[name].toString();            //把值转换为字符串
+        name = encodeURIComponent(name);              //编码名字
+        value= encodeURIComponent(value);                 //编码值
+        pairs.push(name + '=' + value);                 //以“名=值”形式保存
+    }
+    return pairs.join('&');                                //返回以“&”连接的字符串
+}
+```
+- [frame代理](https://github.com/genify/nej/blob/master/doc/AJAX.md)
+
+## cookie
+- 小型文本文件
+- 4k
+- 服务端设置
+- 属性
+  ![](JS/images/17.png)
+- 缺陷
+  - 流量代价
+  - 安全性问题
+    - 如果cookie被人拦截了，那人就可以取得所有的session信息。即使加密也与事无补，因为拦截者并不需要知道cookie的意义，他只要原样转发cookie就可以达到目的了。
+  - 大小限制
+- setCookie
+```js
+function setCookie (name, value, expires, path, domain, secure) {
+    var cookie = encodeURIComponent(name) + '=' + encodeURIComponent(value);
+    if (expires)
+        cookie += '; expires=' + expires.toGMTString();
+    if (path)
+        cookie += '; path=' + path;
+    if (domain)
+        cookie += '; domain=' + domain;
+    if (secure)
+        cookie += '; secure=' + secure;
+    document.cookie = cookie;
+}
+```
+- getcookie
+```js
+function getcookie () {
+    var cookie = {};
+    var all = document.cookie;
+    if (all === '')
+        return cookie;
+    var list = all.split('; ');
+    for (var i = 0; i < list.length; i++) {
+        var item = list[i];
+        var p = item.indexOf('=');
+        var name = item.substring(0, p);
+        name = decodeURIComponent(name);
+        var value = item.substring(p + 1);
+        value = decodeURIComponent(value);
+        cookie[name] = value;
+    }
+    return cookie;
+}
+```
+- removeCookie
+```js
+function removeCookie (name, path, domain) {
+    document.cookie = name + '='
+    + '; path=' + path
+    + '; domain=' + domain
+    + '; max-age=0';
+}
+```
+
+## Storage
+- localStorage
+  - 不删除，一直存在
+- sessionStorage
+  - 浏览器的会话时间
+- ![](JS/images/18.png)
+- 大小限制 ： 5MB
+- JS对象
+  - 读取
+    - localStorage.name
+  - 添加/修改
+    - localStorage.name = 'SSS' // 只支持String类型
+  - 删除
+    - delete localStorage.name
+- API
+  - 获取键值对数量
+    - localStorage.length
+  - 读取
+    - localStorage.getItem("name")
+    - localStorage.key(i)
+  - 添加/修改
+    - localStorage.setItem("name", "sss")
+  - 删除对应键值
+    - localStorage.removeItem("name")
+  - 删除所有数据
+    - localStorage.clear()
 ## end
