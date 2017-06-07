@@ -11,6 +11,12 @@
 4. background: url() no-repeat center; `兼容ie6+`
 	- [demo](https://kuckboy1994.github.io/dailyNote/Layout/horizontally_4.html)
 	- 适合用来做活动页
+5. 决定定位 + transform
+	- [demo](https://kuckboy1994.github.io/dailyNote/Layout/horizontally_5.html)
+	- 使用CSS3 低版本浏览器不支持
+6. flex + justify-content
+	- [demo](https://kuckboy1994.github.io/dailyNote/Layout/horizontally_5.html)
+	- 使用CSS3 低版本浏览器不支持
 
 ## 垂直居中
 

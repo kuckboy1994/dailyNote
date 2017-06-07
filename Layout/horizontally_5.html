@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>水平居中</title>
+	<style type="text/css">
+		.parent {
+			position: relative;
+			
+			background-color: grey;
+		}
+		.child {
+			position: absolute;
+			left: 50%;
+			transform: translateX(-50%);	// 向x轴左侧移动自身的一半
+
+			background-color: blue;
+		}
+		
+	</style>
+</head>
+<body>
+	<div class="parent">
+		<div class="child">DEMO</div>
+	</div>
+</body>
+</html>
