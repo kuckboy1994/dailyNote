@@ -412,4 +412,47 @@ function removeCookie (name, path, domain) {
     - localStorage.removeItem("name")
   - 删除所有数据
     - localStorage.clear()
+
+## setInterval
+```js
+var intervalID = setInterval(func, delay);
+clearInterval(intervalID);
+```
+## setTimeOut
+```js
+var timeoutID = setInterval(func, delay);  // delay 默认为0 
+clearTimeout(timeoutID);
+```
+
+## requestAnimationFrame
+```js
+var requestID = requestAnimationFrame(func)
+cancalAnimationFrame(requestID)
+// 时间由显示器的刷新时间决定
+```
+
+## 常见动画
+- 形变
+- 位移
+- 旋转
+- 透明度
+- ...
+
+
+## audio
+```html
+<audio src="music.mp3"></audio> 
+```
+- 兼容写法
+```html
+<audio>
+
+</audio>
+```
+## video
+ ```html
+ <video src="movie.mov" width=320 height=240></video>
+ ```
+
+
 ## end
