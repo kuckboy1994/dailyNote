@@ -5,12 +5,14 @@
 	<title>垂直居中</title>
 	<style type="text/css">
 		.parent {
-			height: 200px;
+			position: relative;
 			background-color: green;
-			display: table-cell;
-			vertical-align: middle;
+			height: 200px;
 		}
 		.child {
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
 			background-color: blue;
 		}
 	</style>

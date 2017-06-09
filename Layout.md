@@ -19,5 +19,10 @@
 	- 使用CSS3 低版本浏览器不支持
 
 ## 垂直居中
-
+1. table-cell + vertical-align
+  - [demo](https://kuckboy1994.github.io/dailyNote/Layout/verticalli_1.html)
+2. absolute + transform
+  - [demo](https://kuckboy1994.github.io/dailyNote/Layout/verticalli_2.html)
+3. flex + align-items
+  - [demo](https://kuckboy1994.github.io/dailyNote/Layout/verticalli_3.html)
 
