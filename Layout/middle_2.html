@@ -1,17 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <style>
-        .v {
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .parent {
+            text-align: center;
+
+            width: 200px;
+            height: 200px;
+            background-color: blue;
+        }
+
+        .ver-align {
+            display: inline-block;
+            height: 100%;
+            width: 1px;
+            line-height: 100%;
+
+            
+            background-color: red;
             vertical-align: middle;
+        }
+
+        .child {
+            display: inline-block;
+            background-color: white;
         }
     </style>
 </head>
+
 <body>
-    
+    <div class="parent">
+        <div class="ver-align"></div>
+        <div class="child">DEMO</div>
+    </div>
+    <p>使用的时候把竖线的背景取消</p>
 </body>
+
 </html>
