@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>等分布局</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .parent-fix {
+            margin-left: -20px;
+        }
+
+        .parent {
+            display: table;
+            width: 100%;
+            table-layout: fixed;
+
+            background-color: red;
+        }
+
+        .column {
+            display: table-cell;
+            padding-left: 20px;
+            /*width: 220px;*/
+            height: 100px;
+            background-color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="parent-fix">
+        <div class="parent">
+            <div class="column">
+                <p>1</p>
+            </div>
+            <div class="column">
+                <p>2</p>
+            </div>
+            <div class="column">
+                <p>3</p>
+            </div>
+            <div class="column">
+                <p>4</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

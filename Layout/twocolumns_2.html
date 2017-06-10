@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>两列布局</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        .left {
+            float: left;
+            width: 100px;
+            position: relative;
+
+            background-color: blue;
+        }
+        .right-fix {
+            float: right;
+            width: 100%;
+            margin-left: -100%;
+            background-color: red;
+        }
+        .right {
+            margin-left: 120px;
+
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <div class="parent">
+        <div class="left">
+            <p>left</p>
+        </div>
+        <div class="right-fix">
+            <div class="right">
+                <p>right</p>
+                <p>right</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
