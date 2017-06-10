@@ -1,0 +1,114 @@
+@import 'http://nec.netease.com/download/framework/mass/mass/index.mcss';
+
+$color-primray = #3498db;
+
+
+/* reset */
+body,html{
+  padding: 0;
+  margin: 0;
+}
+
+
+// module modal
+
+.m-modal {
+  $gap = 20px;
+
+  $size: 100%;
+
+
+  position: fixed;
+  left:0;
+  top:0;
+  background-color: rgba(#fff, 0.5);
+  text-align: center;
+  color: #aaa;
+
+  .modal_align, .modal_wrap{
+    $display: inline-block;
+    vertical-align: middle;
+  }
+
+  .modal_align{
+    height: 100%;
+    width: 1px;
+    line-height: 100%;
+  }
+
+  .modal_wrap{
+    position: relative;
+    text-align: left; 
+    width: 400px;
+    $box-shadow: 2px 2px 5px rgba(0,0,0, .4);
+    border-radius: 3px;
+    overflow: hidden;
+
+
+  }
+
+  .close{
+    position: absolute;
+    right: 8px;
+    top: 8px;
+    font-size: 18px;
+    color: #ddd;
+    cursor: pointer;
+    &:hover{
+      color: #999;
+    }
+  }
+
+  .modal_head{
+    background-color: $color-primray;
+    line-height: 1.5;
+    padding: 6px 20px;
+    color: #fff;
+    border-bottom: 1px solid l-adjust($color-primray, -5%);
+  }
+
+  .modal_body{
+    background-color: #fff;
+    border-top: 1px solid #eee;
+    padding: $gap;
+  }
+
+  .modal_foot{
+    $clearfix();
+    border-top: 1px solid #eee;
+    a{
+      $box-sizing: border-box;
+      float: left;
+      width: 50%;
+
+      background-color: #fff;
+      padding: 8px;
+      cursor: pointer;
+      color: $color-primray;
+      text-align: center;
+      text-decoration: none;
+      $transition: background-color .2s ease-in;
+
+      &:hover{
+        background-color: l-adjust($color-primray, 14%);
+        color: #fff;
+      }
+      &:active{
+        background-color: $color-primray;
+        color: #fff;
+      }
+
+      &:first-child{
+        border-right: 1px solid #eee;
+      }
+    }
+    .cancel {
+      color: #999;
+      &:hover{
+        background-color: #aaa;
+      }
+    }
+  }
+
+
+}

@@ -446,13 +446,133 @@ cancalAnimationFrame(requestID)
 - 兼容写法
 ```html
 <audio>
-
+  <source src="music.mp3" type="audio/mpeg">
+  <source src="music.wav" type="audio/x-wav">
+  <source src="music.ogg" type="audio/ogg">
 </audio>
 ```
 ## video
  ```html
  <video src="movie.mov" width=320 height=240></video>
  ```
+ - 兼容写法
+ ```html
+<video>
+  <source src="movie.webm" type="video/webm; codece='vp8, vorbis'">
+  <source src="movie.mp4" type="video/mp4; codece='avc1.42E01E, mp4a.40.2'">
+</video>
+ ```
 
+## 多媒体格式兼容性
+![](JS/images/19.png)
 
-## end
+## html属性
+![](JS/images/20.png)
+
+## 控制多媒体播放
+- load()
+  - 加载媒体内容
+- play()
+  - 开始播放
+- pause()
+  - 暂停播放
+- playbackRate
+  - 播放速度
+- currentTime
+  - 播放进度
+- volume
+  - 音量
+- muted
+  - 静音
+## 查询多媒体状态
+- paused
+  - 暂停
+- seeking
+  - 跳转
+- ended
+  - 播放完成
+- duration
+  - 媒体时长
+- initialTime
+  - 媒体开始时长
+## 多媒体相关事件
+- loadstart
+  - 开始请求媒体内容
+- loadmetadata
+  - 媒体元数据已经加载完成
+- canplay
+  - 加载了一些内容，可以开始播放
+- play
+  - 调用play(),或设置了autoplay
+- waiting
+  - 缓冲数据不够，播放暂停
+- playing
+  - 正在播放
+
+## canvas
+- 基本用法
+```html
+<canvas id="tutorial" width="300" height="200"></canvas>
+```
+- 渲染上下文对象
+```js
+var canvas = document.getElementById('tutorial');
+var ctx = canvas.getContext('2d');
+```
+- globalCompositeOperation
+![](JS/images/21.png)
+- 基本绘图步骤
+![](JS/images/22.png)
+
+## ![](JS/images/23.png)
+- 属性
+  - navigator
+    - 浏览器信息
+  - localtion
+    - 浏览器定位和导航
+    - ![](JS/images/24.png)
+    - href 完整路径
+    - assign(url)
+      - 载入新的url，记录浏览历史
+    - replace(url)
+      - 载入新的url，不记录浏览历史
+    - reload()
+      - 重载当前页
+  - history
+    - 浏览器当前窗口的浏览历史
+    - length 历史数量
+    - back()
+    - forward()
+    - go()
+    - 上面的三个方法不会增加length的值
+  - screen
+    - 屏幕信息
+- 方法
+  - 三种对话框
+    - alert()
+      - 警告框 阻塞
+    - confirm
+    - prompt
+  - 开，关新窗口
+    - 开
+      ```js
+      var w = window.open("subwin.html", "subwin", "width=400,height=350,status=yes,resizeable=yes");
+      ```
+    - 关
+      ![](JS/images/25.png)
+  - 事件
+    ![JS/images/26.png]
+
+## 表单
+- form
+  - name
+    - `var formName = document.forms.pizza`
+  - autocomplete
+    - on
+      - 输入的是偶会有候选值（内容为之前输入的内容）
+    - off
+  - elements
+    - ![](JS/images/27.png)
+    - 归属于该动态表单的表单控件(除图片按钮)
+      - `<input name="a" form="b" />`
+  - ![](JS/images/28.png)

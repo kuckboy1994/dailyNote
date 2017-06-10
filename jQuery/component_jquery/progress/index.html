@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Progress Demo</title>
+  <link rel="stylesheet" href="progress.css">
+</head>
+<body>
+
+
+<script src='emitter.js'></script>
+<script src='progress.js'></script>
+<script>
+
+
+var colors = {
+  SUCCESS: '#5cb85c',
+  INFO: '#5bc0de',
+  DANGER: '#d9534f',
+  WARNING: '#f0ad4e'
+}
+
+
+var progress = new Progress({
+  // 1. 自定义类名扩展
+  className: 'progress-fix',
+  // 2. 组件容器
+  container: document.body
+  
+  //  事件监听相关
+}).on('start', function(){
+
+  console.log('start')
+
+}).on('end', function(){
+
+  console.log('end')
+
+}).start({
+  endColor: '#5cb85c'
+})
+
+
+// 1s 后 我们移动到90%
+setTimeout(function(){
+  progress.moveTo(.5);
+}, 2000)
+// 2s 后 我们结束他们
+setTimeout(function(){
+  // 比如ajax失败
+  progress.end({
+    endColor: '#d9534f'
+  });
+}, 4000)
+
+
+
+
+
+</script>
+</body>
+</html>

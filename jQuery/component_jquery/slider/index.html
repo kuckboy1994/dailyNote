@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1,user-scalable=no">
+  <title>Slide</title>
+  <link rel="stylesheet" href="style.css"></head>
+
+<body style='overflow:hidden'>
+
+
+<ul class="m-cursor">
+  <li class='prev'><</li>
+  <li class='cursor'>1</li>
+  <li class='cursor'>2</li>
+  <li class='cursor'>3</li>
+  <li class='cursor'>4</li>
+  <li class='cursor'>5</li>
+  <li class='cursor'>6</li>
+  <li class='next'>></li>
+</ul>
+
+<script src='js/util.js'></script>
+<script src='js/slider.js'></script>
+<script>
+
+
+var $ = function( selector ){
+  return [].slice.call(document.querySelectorAll(selector))
+}
+
+var cursors = $('.m-cursor .cursor');
+var prev = $('.m-cursor .prev')[0];
+var next = $('.m-cursor .next')[0];
+
+cursors.forEach(function(cursor, index){
+  cursor.addEventListener('click', function(){
+    slider.nav(index);
+  })
+})
+
+prev.addEventListener('click', function(){
+  slider.prev()
+})
+next.addEventListener('click', function(){
+  slider.next()
+})
+
+
+var slider = new Slider({
+  //视口容器
+  container: document.body,
+  // 图片列表
+  images: [
+    "./imgs/pic01.jpg",
+    "./imgs/pic02.jpg",
+    "./imgs/pic03.jpg",
+    "./imgs/pic04.jpg",
+    "./imgs/pic05.jpg",
+    "./imgs/pic06.jpg"
+  ],
+
+  // 是否允许拖拽
+  drag: true
+});
+
+// 通过监听`nav`事件来完成额外逻辑
+// --------------
+slider.on('nav', function( ev ){
+
+  var pageIndex = ev.pageIndex;
+
+  cursors.forEach(function(cursor, index){
+
+    if(index === pageIndex ){
+
+      cursor.className = 'z-active';
+
+    }else{
+
+      cursor.className = '';
+    }
+  })
+
+})
+
+// 3s 自动轮播
+setInterval(function(){
+  
+  // 下一页
+  // slider.next();
+
+},3000)
+
+// 直接跳到第二页
+slider.nav(2)
+
+
+
+</script>
+</body>
+</html>
+
