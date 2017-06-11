@@ -26,7 +26,7 @@
 3. flex + align-items
   - [demo](https://kuckboy1994.github.io/dailyNote/Layout/verticalli_3.html)
 
-## 左右都居中
+## 上下左右都居中
 1. [demo](https://kuckboy1994.github.io/dailyNote/Layout/middle_1.html)
 2. [demo](https://kuckboy1994.github.io/dailyNote/Layout/middle_2.html)
 3. [demo](https://kuckboy1994.github.io/dailyNote/Layout/middle_3.html)
@@ -64,3 +64,11 @@
 	- [demo](https://kuckboy1994.github.io/dailyNote/Layout/equal_2.html)
 3. flex
 	- [demo](https://kuckboy1994.github.io/dailyNote/Layout/equal_3.html)
+
+## 全屏布局
+1. position
+	- [demo](https://kuckboy1994.github.io/dailyNote/Layout/fullpage_1.html)
+2. flex
+	- [demo](https://kuckboy1994.github.io/dailyNote/Layout/fullpage_2.html)
+3. flex 全部自适应
+	- [demo](https://kuckboy1994.github.io/dailyNote/Layout/fullpage_3.html)

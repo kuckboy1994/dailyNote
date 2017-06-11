@@ -6,9 +6,21 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>两列布局</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .parent {
+            overflow: hidden;
+        }
+        .left, .right {
+            padding-bottom: 9999px;
+            margin-bottom: -9999px;
+        }
         .left {
             float: left;
             width: 100px;
+            margin-right: 20px;
 
             background-color: blue;
         }

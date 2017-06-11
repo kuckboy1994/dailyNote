@@ -80,7 +80,19 @@ user-select:none;
 ```
  -->
 
-
+## 相邻兄弟选择器
+```html
+<ul>
+    <li></li>
+    <li></li>
+    <li></li>
+<ul>
+```
+```css
+li+li {
+    margin-left:20p;
+}
+```
 
 
 
