@@ -39,3 +39,5 @@
 	- 尽可能使用sprite技术
 	- sprite图片可按模块、业务、页面来划分
 
+## 资料
+- [nec](http://nec.netease.com/)
