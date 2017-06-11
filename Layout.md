@@ -72,3 +72,40 @@
 	- [demo](https://kuckboy1994.github.io/dailyNote/Layout/fullpage_2.html)
 3. flex 全部自适应
 	- [demo](https://kuckboy1994.github.io/dailyNote/Layout/fullpage_3.html)
+
+
+## 响应式
+- viewport
+`<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">`
+> 手机的视窗的宽度都会比实际的设备宽度大，比如：iphone4 是 980像素。通过某种比例使页面缩小。
+设置页面的宽度为设备的宽度。viewport的宽度设置为设备宽度，320像素。
+初始缩放为1.0。
+防止用户自己手动缩放。
+- @media
+```css
+@media screen and (max-width: 320px) {
+	/*视窗宽度 <= 320px*/
+}
+
+@media screen and (min-width: 769) {
+	/*视窗宽度 >= 769px*/
+}
+
+@media screen and (min-width: 320px) and (max-width: 769) {
+	/*视窗宽度 >= 320px 并且 视窗宽度 <= 769px*/
+}
+```
+- 响应式demo
+	- [demo](https://kuckboy1994.github.io/dailyNote/Layout/responsive_1.html)
+- 我们把一个图标做成CSS中的背景图，在视网膜屏上预览时会发现图标是模糊的，所以我们会同时准备一个2倍大小的图标给高清屏，如何实现？
+```css
+.pic {
+    background-image: url(pic1.jpg);
+}
+/* 高清屏幕 */   
+@media screen and(-webkit-min-device-pixel-ratio:2.0) {
+    .pic {
+        background-image: url(pic2.jpg);
+    }
+/*这里pixel-ratio应该是2.0*/
+```
