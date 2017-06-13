@@ -1,27 +1,96 @@
 # dailyNote
 ## 这个项目的作用：
 - 记录遇到的问题，方便日后查阅。
-- 对自己学会的知识的一个统计。
+- 对自己学会的知识的一个统计和回顾。
 
 ## 致阅览者：
 - 要是大家在看到里面的内容不对，或有异议的地方可以在Issues提交。
 - 要是有想知道的内容，在力所能及的范围内会加入。
 - 感谢~
 
-## JS
-- [JS基础](JS.md)
-- [DOM操作](DOM.md)
-- [JS考点](question_summary_js.md)
-- [JS技能树总结](skillmap_js.md)
-
-## CSS
-- [CSS](CSS.md)
-- [SCSS](SCSS.md)
-
-## 标准（规范）
-- [代码注释规范](Comments.md)
-- [MarkDown写法](MarkDown.md)
-
-## 其他
-- [Photoshop](Photoshop.md)
-- [图片处理](picture.md)
+## 前端(FRONT END)
+- JS
+	- js基础
+		- DOM
+		- BOM
+		- 基础
+	- 模块化
+		- requirejs
+		- seajs
+	- 语法糖
+- JS库
+	- jQuery
+	- zepto
+	- underscore
+- 组件
+	- js原生组件
+	- jQuery组件
+- CSS
+	- CSS3
+	- 预处理
+		- SASS
+			- 拓展
+		- LESS
+	- 框架
+		- Bootstrap
+- HTML
+	- html基础和兼容
+	- html5
+		- canvas
+			- 引擎
+	- 模板引擎
+- 布局框架
+	- 单一布局
+		- 居中布局
+		- 水平布局
+		- 垂直居中布局
+	- 多列布局
+		- 圣杯布局
+		- 双飞翼布局
+	- flex布局
+- 前端框架
+	- reactjs
+	- vuejs
+	- angularjs
+	- backbonejs
+- 网络通信
+	- http状态码
+- WEB前端安全
+	- XSS
+- WEB性能
+	- sprite
+	- 压缩
+	- 合并
+- 自动化工具及包管理
+	- grunt
+	- gulp
+	- webpack
+	- npm script
+	- npm
+- 测试
+- 调试工具
+	- chrome
+	- fiddler
+	- wireshark
+- PHOTOSHOP
+- 版本控制
+	- svn
+	- git
+- SEO
+	- web
+	- 微信
+- 规范
+	- html
+	- js
+	- css
+	- 注释
+	- 文件管理
+- 软件工程
+- 前后端分离
+- 工具及常用插件
+	- 开发工具
+		- sublime text 3
+		- atom
+		- vscode
+- 其他
+	- markdown
