@@ -39,7 +39,7 @@
 ![](http://i.imgur.com/ow6DnXf.png)  
 千万不要tab和space混用，还有什么比生命更加重要呢？    
 [优酷视频链接](http://v.youku.com/v_show/id_XMTYzMDQ3ODgxMg==.html)  
-`o(*￣︶￣*)o` 个人比较喜欢tab，这里的tab指四个空格。
+`o(*￣︶￣*)o` 
 
 ### 单行注释
 - 双斜线后，必须跟注释内容保留一个空格

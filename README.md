@@ -8,6 +8,9 @@
 - 要是有想知道的内容，在力所能及的范围内会加入。
 - 感谢~
 
+## 说明
+**对文中提及的点有不赞同的欢迎[提出 issues](https://github.com/kuckboy1994/dailyNote/issues/new)（请添加 `readme` 标签）讨论。还可提出需要帮助（ `help wanted` 标签）或反馈问题( `bug` 标签)。**
+
 ## 前端(FRONT END)
 - JS
 	- js基础
@@ -83,7 +86,7 @@
 	- html
 	- js
 	- css
-	- 注释
+	- [注释](/standard/comments/Comments.md)
 	- 文件管理
 - 软件工程
 - 前后端分离

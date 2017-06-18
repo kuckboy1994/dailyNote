@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>flex</title>
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    html, body, .parent {
+        width: 100%;
+        height: 100%;
+    }
+    .parent {
+        display: -webkit-box;
+        display: flex;
+        flex-direction: column;
+    }
+    .son1 {
+        flex-grow: 1;
+        flex-basis: 0;
+        background-color: red;
+    }
+    .son2 {
+        flex-grow: 1;
+        flex-basis: 0;
+        background-color: blue;
+    }
+    .son3 {
+        flex-grow: 1;
+        flex-basis: 0;
+        background-color: green;
+    }
+    .son11 {
+        height: 100px;
+        width: 100px;
+        background-color: pink;
+    }
+    </style>
+</head>
+<body>
+    <div class="parent">
+        <div class="son1">
+            <div class="son11"></div>
+        </div>
+        <div class="son2"></div>
+        <div class="son3"></div>
+    </div>
+</body>
+</html>
