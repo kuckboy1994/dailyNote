@@ -14,7 +14,7 @@
 ## 前端(FRONT END)
 - JS
 	- js基础
-		- DOM
+		- DOM
 		- BOM
 		- 基础
 	- 模块化
@@ -48,9 +48,11 @@
 		- 水平布局
 		- 垂直居中布局
 	- 多列布局
-		- 圣杯布局
-		- 双飞翼布局
-	- flex布局
+		- [圣杯布局](布局/多列布局/圣杯布局/HolyGrail.md)
+		- [双飞翼布局](布局/多列布局/双飞翼布局/DoubleWing.md)
+	- [flex布局](布局/flex布局/flex.md)
+	- 其他布局
+		- [绝对定位布局](布局/其他布局方式/otherLayout.md)
 - 前端框架
 	- reactjs
 	- vuejs
@@ -59,7 +61,7 @@
 - 网络通信
 	- http状态码
 - WEB前端安全
-	- XSS
+	- XSS
 - WEB性能
 	- sprite
 	- 压缩
@@ -70,12 +72,12 @@
 	- webpack
 	- npm script
 	- npm
-- 测试
+- 测试
 - 调试工具
 	- chrome
 	- fiddler
 	- wireshark
-- PHOTOSHOP
+- PHOTOSHOP
 - 版本控制
 	- svn
 	- git
