@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>评分</title>
+	<style type="text/css">
+		* {
+			padding: 0;
+			margin: 0;
+		}
+		.k-rating {
+			display: inline-block;
+			*display:inline;
+			*zoom:1;
+		}
+	</style>
+</head>
+<body>
+	<p>动态评分</p>
+	<div id="div1">
+		<ul class="k-rating">
+			<li data-kvalue="1" title="特别差，给1分"></li>
+			<li data-kvalue="2" title="很差，给2分"></li>
+			<li data-kvalue="3" title="一般，给3分"></li>
+			<li data-kvalue="4" title="很好，给4分"></li>
+			<li data-kvalue="5" title="非常好，给5分"></li>
+		</ul>
+		<span class="k-rating-score" data-kplaceholder="请打分"></span>
+	</div>
+	<p>固定评分</p>
+	<div id="div2">
+		<ul class="k-rating">
+			<li data-kvalue="6" title="特别差，给6分"></li>
+			<li data-kvalue="7" title="很差，给7分"></li>
+			<li data-kvalue="8" title="一般，给8分"></li>
+			<li data-kvalue="9" title="很好，给9分"></li>
+			<li data-kvalue="10" title="非常好，给10分"></li>
+		</ul>
+		<span class="k-rating-score" data-kplaceholder="请打分"></span>
+	</div>
+	
+<pre>
+<code>
+$('#div2').rating({
+	"starkPic": 'images/stark2.png',
+	"starPic": 'images/stars2.png',
+	"backgroundColor": '#000',
+	"starWidth": "32px",
+	"starHeigt": "21px",
+	
+	"noclick": true,
+	"index": 3,
+	"text": '我是随意设置的文字',
+
+	clickFuc: function (data) {
+		alert('你点击了“' + data.text + '”, 它的值是：' + data.value );
+	}
+});
+</code>
+</pre>
+<script src="http://s.thsi.cn/js/jquery-1.8.3.min.js"></script>
+<script src="rating.js"></script>
+<script type="text/javascript">
+$(function () {
+	$('#div1').rating({
+		"starkPic": 'images/starky.png',
+		"starPic": 'images/starsy.png',
+		"backgroundColor": '#000',
+		"starWidth": "22px",
+		"starHeigt": "21px",
+		clickFuc: function (data) {
+			alert('你点击了“' + data.text + '”, 它的值是：' + data.value );
+		}
+	});
+
+	$('#div2').rating({
+		"starkPic": 'images/stark2.png',
+		"starPic": 'images/stars2.png',
+		"backgroundColor": '#000',
+		"starWidth": "32px",
+		"starHeigt": "21px",
+		
+		"noclick": true,
+		"index": 3,
+		"text": '我是随意设置的文字',
+
+		clickFuc: function (data) {
+			alert('你点击了“' + data.text + '”, 它的值是：' + data.value );
+		}
+	});
+});
+</script>
+</body>
+</html>
