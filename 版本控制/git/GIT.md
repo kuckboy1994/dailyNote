@@ -33,9 +33,21 @@ git config --global user.email "shanchao@qq.com"
 初始化仓库
 
 ## git status
-
+- 未跟踪 < - > 跟踪
+- 工作目录 < - > 暂存区
+- 暂存区 < - > 最新提交
+- ![](images/1.png)
 
 ## git add
+添加文件内容到`暂存区（同时文件被跟踪）`
+
+## .gitignore
+- 在添加时`忽略`匹配的文件
+- 仅作用于`未追踪`的文件
+- 说明
+```
+# 
+```
 
 ## git commit
 
