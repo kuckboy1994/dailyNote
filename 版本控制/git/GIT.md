@@ -36,7 +36,6 @@ git config --global user.email "shanchao@qq.com"
 - 未跟踪 < - > 跟踪
 - 工作目录 < - > 暂存区
 - 暂存区 < - > 最新提交
-- ![](images/1.png)
 
 ## git add
 添加文件内容到`暂存区（同时文件被跟踪）`
@@ -46,10 +45,101 @@ git config --global user.email "shanchao@qq.com"
 - 仅作用于`未追踪`的文件
 - 说明
 ```
-# 
+# Logs 注释
 ```
 
 ## git commit
+暂存区提交到 提交区
+```
+git commit -m 'initial commit'
+```
+直接提交到 提交区
+```
+git commit -a -m 'initial commit'
+```
+
+## 从暂存区删除git-rm
+- git rm --cached : 仅从暂存区删除
+- git rm : 从暂存区于工作目录删除
+- git rm $(git ls-files --deleted) : 删除所有被跟踪，但是在工作目录被删除的文件
+
+## git log
+输出简洁内容
+```
+git log --oneline
+```
+输出关系路径
+```
+git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+```
+
+## git config alias.shortname <fullcommand>
+```
+git config --global alias.lg "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
+```
+- 详细配置：[链接](http://ruby-china.org/topics/939)
+
+## 配置的基本信息
+这个目录下查看基本信息
+```
+~/.gitconfig
+```
+
+## git diff
+- git diff
+	- 工作目录与暂存区的差异
+- git diff -cachedp[<reference>]
+	- 暂存区与某次提交差异，默认为HEAD
+- git diff <reference>
+	- 工作目录与某次提交的差异
+
+## git checkout --<file>
+撤销本地修改
+
+## git reset HEAD <file>
+撤销暂存区内容。
+
+将文件内容从上次提交复制到暂存区
+```
+git reset HEAD README.md
+```
+
+
+## git checkout HEAD -- <file>
+撤销全部改动
+
+将工作内容从上次提交复制到工作目录
+```
+git checkout HEAD -- README.md
+```
+
+## 总结
+![](images/1.png)
+![](images/2.png)
+
+# 分支操作
+## git branch
+- git branch <branchName>
+创建一个分支
+```
+git branch featrue-kuck
+```
+### git checkout
+切换到`featrue-kuck`分支
+```
+git checkout featrue-kuck
+```
+
+创建一个分支 并切换到新创建的分支
+```
+git checkout -b <branchName>
+```
+
+
+- git branch -d <branchName>
+
+- git branch -v
+
 
 
 ## github在线demo演示
@@ -74,3 +164,7 @@ git存在暂存区和编辑区这两个概念
 2.git add
  
 在github上本地其实是由文件夹的，但是在github上如果文件夹是空的，在github上就不会显示的。
+
+
+## 参考资料
+- [个性化你的 Git Log 的输出格式—— Ruby China](http://ruby-china.org/topics/939)
