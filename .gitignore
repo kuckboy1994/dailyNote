@@ -10,3 +10,23 @@ node_modules/
 
 # sass 生成的缓存文件
 .sass-cache/
+
+
+*.iml
+.idea/
+.ipr
+.iws
+*~
+~*
+*.diff
+*.patch
+*.bak
+.DS_Store
+Thumbs.db
+.svn/
+*.swp
+.nojekyll
+.project
+.settings/
+node_modules/
+_site/
