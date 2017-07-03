@@ -1,5 +1,5 @@
 ## 圣杯布局
-圣杯布局通过 `margin-left` 把下一行的元素提到上一行，再使用 `position: relative;` + 元素定位移动到正确的位置上。
+圣杯布局通过 `margin-left` 把下一行的元素提到上一行，再使用 `position: relative;` + 元素定位移动到正确的位置上。
 
 兼容ie6+和主流浏览器
 
