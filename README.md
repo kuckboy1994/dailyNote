@@ -19,7 +19,7 @@
 		- 基础
 	- 模块化
 		- requirejs
-		- seajs
+		- [seajs](JS/模块化/seajs/seajs.md)
 	- 语法糖
 - JS库
 	- jQuery
