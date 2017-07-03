@@ -5,8 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <style type="text/css">
+        #view_chart_container {
+            width: 400px;
+            height: 200px;
+        }
+    </style>
 </head>
 <body>
+<div id="view_chart_container">
+    
+</div>
 <script src="../sea-modules/seajs/3.0.1/sea.js"></script>
 <script>
     // seajs 的简单配置
@@ -14,12 +23,13 @@
         base: "../sea-modules/",
         alias: {
             "jquery": "jquery/3.2.1/jquery.min.js",
-            "echarts": "echart/3.6.2/echarts.min.js"
+            "echarts": "echarts/3.6.2/echarts.min.js"
         }
     });
 
     // 加载入口模块
-    seajs.use("../static/index/index");
+    // seajs.use("../static/app/index");
+    seajs.use('../dist/index/index');
 </script>
 </body>
 </html>
