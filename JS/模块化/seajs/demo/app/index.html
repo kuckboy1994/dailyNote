@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script src="../sea-modules/seajs/3.0.1/sea.js"></script>
+<script>
+    // seajs 的简单配置
+    seajs.config({
+        base: "../sea-modules/",
+        alias: {
+            "jquery": "jquery/3.2.1/jquery.min.js",
+            "echarts": "echart/3.6.2/echarts.min.js"
+        }
+    });
+
+    // 加载入口模块
+    seajs.use("../static/index/index");
+</script>
+</body>
+</html>
