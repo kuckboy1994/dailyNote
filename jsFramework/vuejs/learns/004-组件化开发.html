@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>004 组件化开发</title>
+</head>
+<body>
+<div id="app">
+    <counter heading="Likes" color="red"></counter>
+    <counter heading="Dislikes" color="green"></counter>
+    <counter heading="Watchs" color="blue"></counter>
+</div>
+
+<template id="counter-template">
+    <div>
+        <h1>{{heading}}</h1>
+        <button @click="count++" v-bind:style="{backgroundColor:color}">{{count}}</button>
+    </div>
+</template>
+<script src="../vue.js"></script>
+<script>
+    Vue.component('counter', {
+        template: '#counter-template',
+        props: ['heading', "color"],
+        data: function () {
+            return {count:  0};
+        }
+    });
+    new Vue({
+        el: '#app',
+        data: {
+
+        },
+        methods: {
+
+        }
+    });
+</script>
+</body>
+</html>
