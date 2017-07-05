@@ -25,6 +25,11 @@
 	- jQuery
 	- zepto
 	- underscore
+- JS框架
+	- reactjs
+	- vuejs
+	- angularjs
+	- backbonejs
 - 组件
 	- js原生组件
 	- jQuery组件
@@ -53,11 +58,6 @@
 	- [flex布局](布局/flex布局/flex.md)
 	- 其他布局
 		- [绝对定位布局](布局/其他布局方式/otherLayout.md)
-- 前端框架
-	- reactjs
-	- vuejs
-	- angularjs
-	- backbonejs
 - 网络通信
 	- http状态码
 - WEB前端安全
