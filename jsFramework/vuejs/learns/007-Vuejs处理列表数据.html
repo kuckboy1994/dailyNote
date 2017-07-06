@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>006 computed的应用场景</title>
+    <style>
+        .completed {
+            text-decoration: line-through;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <ul>
+        <li v-for="task in tasks" :class="['truely',task.completed ? 'completed' : '']">{{task.body}}</li>
+    </ul>
+</div>
+
+<script src="../vue-1.0.14.js"></script>
+<script>
+new Vue({
+    el: '#app',
+    data: {
+        tasks: [
+            {body: 'go to the movie',completed: false},
+            {body: 'go to the show',completed: true},
+            {body: 'go to the shop',completed: false}
+        ]
+    }
+})
+</script>
+</body>
+</html>

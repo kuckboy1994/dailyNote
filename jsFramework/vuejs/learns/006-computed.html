@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>006 computed的应用场景</title>
+</head>
+<body>
+<div id="app">
+    Level {{level}} {{username}}
+    <br>
+    <input type="text"  v-model="firstname">
+    <input type="text"  v-model="lastname">
+</div>
+
+<script src="../vue-1.0.14.js"></script>
+<script>
+new Vue({
+    el: '#app',
+    data: {
+        points: 200,
+        level: '普通会员',
+        firstname: 'shan',
+        lastname: 'chao'
+    },
+    computed: {
+        level: function () {
+            if (this.points <= 100) {
+                return '普通会员';
+            } else {
+                return 'vip会员';
+            }
+        },
+        username: function () {
+            return this.firstname +''+ this.lastname;
+        }
+    }
+})
+</script>
+</body>
+</html>
