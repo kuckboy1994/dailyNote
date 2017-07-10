@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>006 computed的应用场景</title>
+    <title>007-Vuejs处理列表数据</title>
     <style>
         .completed {
             text-decoration: line-through;
@@ -14,7 +14,7 @@
 <body>
 <div id="app">
     <ul>
-        <li v-for="task in tasks" :class="['truely',task.completed ? 'completed' : '']">{{task.body}}</li>
+        <li @click="toggleTasks(task)" v-for="task in tasks" :class="['truely',task.completed ? 'completed' : '']">{{task.body}}</li>
     </ul>
 </div>
 
@@ -28,6 +28,11 @@ new Vue({
             {body: 'go to the show',completed: true},
             {body: 'go to the shop',completed: false}
         ]
+    },
+    methods: {
+        toggleTasks: function (task) {
+            task.completed = !task.completed;
+        }
     }
 })
 </script>

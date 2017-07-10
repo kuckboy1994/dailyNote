@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>009-添加任务总数和删除任务</title>
+    <style>
+        .completed {
+            text-decoration: line-through;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <task-app :list="tasks">
+    </task-app>
+
+     <task-app :list="[{body: 'learn oop', completed: false}]">
+    </task-app>
+    
+    
+</div>
+
+<template id="task-template">
+    <ul>
+        <li 
+            v-for="task in list" 
+            @click="toggleTasks(task)" 
+            :class="['truely',task.completed ? 'completed' : '']"
+        >
+            {{task.body}}
+        </li>
+    </ul>
+</template>
+
+<script src="../vue-1.0.14.js"></script>
+<!--<script src="https://cdn.bootcss.com/vue/1.0.14/vue.js"></script>-->
+<!--<script src="https://cdn.bootcss.com/vue/2.3.4/vue.js"></script>-->
+<script>
+Vue.component('task-app', {
+    template: '#task-template',
+    props: ['list'],
+    methods: {
+        toggleTasks: function (task) {
+            task.completed = !task.completed;
+        }
+    }
+});
+new Vue({
+    el: '#app',
+    data: {
+        tasks: [
+            {body: 'go to the movie',completed: false},
+            {body: 'go to the show',completed: true},
+            {body: 'go to the shop',completed: false}
+        ]
+    }
+})
+</script>
+</body>
+</html>
