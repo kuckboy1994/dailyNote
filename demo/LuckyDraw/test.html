@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.move{
+				width: 100px;
+				height: 100px;
+				background: pink;
+				
+			}
+			.aa{
+				transform: translate3d(80px, 150px, 0px); 
+				transition: transform 30s linear 0s; 
+			}
+		</style>
+	</head>
+	<body>
+		<div class="move">
+			
+		</div>
+		<script src="js/jquery-2.1.4.js"></script>
+		<script>
+			$(function(){
+				setTimeout(function(){
+					$('.move').addClass('aa');
+				},1000)
+			})
+		</script>
+	</body>
+</html>

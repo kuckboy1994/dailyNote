@@ -1,0 +1,83 @@
+
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-2.1.4.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			#all{
+				width: 100px;
+				height: 100px;
+				position: relative;
+				top: 100px;
+			}
+			#div {
+				width: 100px;
+				height: 100px;
+				background-color: lightcoral;
+				position: absolute;
+				/*transition: 0.5s ease-in-out;*/
+			}
+			
+			.div {
+				animation: mymove 0.5s infinite;
+			}
+			
+			@keyframes mymove {
+				0% {top: 0px;}
+				20% {top: -25px;}
+				50% {top: -50px;}
+				80% {top: -25px;}
+				100% {top: 0px;}
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="all">
+			<div id="div" class="div"></div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var x = 0;
+		var a = 1;
+		var time = 0;
+		var jump = true;
+		//$("#div").attr("class","div");
+		setInterval(function() {
+			//			return;
+			if(jump) {
+				x += a;
+				//				if($("#div").attr("class") != "div"){
+				//					$("#div").attr("class","div");
+				//				}
+				if(x >= 200) {
+					jump = !jump;
+				}
+				if(x <= 0) {
+					jump = !jump;
+				}
+			} else {
+				//				if($("#div").attr("class") != ""){
+				//					$("#div").attr("class",'');
+				//				}
+				time++;
+			}
+			if(time >= 100) {
+				$("#div").addClass("div");
+				jump = !jump;
+				a = (-1) * a;
+				time = 0;
+			} else if(time == 1) {
+				$("#div").removeClass("div");
+			}
+			$("#all").css({
+				left: x
+			})
+
+		}, 10)
+	</script>
+
+</html>

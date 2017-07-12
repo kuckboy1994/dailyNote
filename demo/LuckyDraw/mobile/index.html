@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+	    <meta name="apple-mobile-web-app-capable" content="yes">
+	    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+	    <meta name="format-detection" content="telephone=no"/>
+	    <meta name="full-screen" content="yes">
+    	<meta name="x5-fullscreen" content="true">
+		<title>存管活动</title>
+		<link rel="stylesheet" href="css/style.css" />
+	</head>
+	<body>
+		<div class="img1">
+			<img src="img/img01.jpg" alt="" />
+		</div>
+		<div class="img2">
+			<img src="img/img02.jpg" alt="" />
+			<div class="move">
+				<img src="img/move.png" alt="" />
+			</div>
+			<!--骰子-->
+			<div class="roll_dice roll_pos9"></div>
+			<p class="text">
+				还剩下骰子
+				<span id="count">20</span>个
+			</p>
+			<div id="shake_dice"></div>
+		</div>
+		<div class="img3">
+			<img src="img/img03.jpg" alt="" />
+			<div class="records">
+				<ul class="reward_list">
+					<li>
+						<span class="user_name">
+							123*****123
+						</span>
+						<span class="reward_name">
+							20元投资红包
+						</span>
+					</li>
+					<li>
+						<span class="user_name">
+							123*****123
+						</span>
+						<span class="reward_name">
+							20元投资红包
+						</span>
+					</li>
+					<li>
+						<span class="user_name">
+							123*****123
+						</span>
+						<span class="reward_name">
+							20元投资红包
+						</span>
+					</li>
+					<li>
+						<span class="user_name">
+							123*****123
+						</span>
+						<span class="reward_name">
+							20元投资红包
+						</span>
+					</li>
+					<li>
+						<span class="user_name">
+							123*****123
+						</span>
+						<span class="reward_name">
+							20元投资红包
+						</span>
+					</li>
+					<li>
+						<span class="user_name">
+							123*****123
+						</span>
+						<span class="reward_name">
+							20元投资红包
+						</span>
+					</li>
+					<li>
+						<span class="user_name">
+							123*****123
+						</span>
+						<span class="reward_name">
+							20元投资红包
+						</span>
+					</li>
+					<li>
+						<span class="user_name">
+							123*****123
+						</span>
+						<span class="reward_name">
+							20元投资红包
+						</span>
+					</li>
+					<li>
+						<span class="user_name">
+							123*****123
+						</span>
+						<span class="reward_name">
+							40元投资红包
+						</span>
+					</li>
+					<li>
+						<span class="user_name">
+							123*****123
+						</span>
+						<span class="reward_name">
+							30元投资红包
+						</span>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="img4">
+			<img src="img/img04.jpg" alt="" />
+		</div>
+		<script src="js/jquery-2.1.4.js"></script>
+		<script src="js/index.js"></script>
+		<script src="js/scroll.js"></script>
+		<script>
+			$(function(){
+				 $('.records').myScroll({
+			        speed: 40, //数值越大，速度越慢
+			        rowHeight: $('.reward_list li').height() + parseInt($('.reward_list li').css('marginTop')) //li的高度
+		    	});
+			})
+			
+		</script>
+	</body>
+</html>
