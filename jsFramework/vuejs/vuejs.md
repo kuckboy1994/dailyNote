@@ -1,4 +1,5 @@
 # vuejs
+
 ## 声明周期
 ![](images/lifecycle.png)
 

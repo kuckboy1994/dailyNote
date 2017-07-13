@@ -6,7 +6,7 @@
 ## 致阅览者：
 - 要是大家在看到里面的内容不对，或有异议的地方可以在Issues提交。
 - 要是有想知道的内容，在力所能及的范围内会加入。
-- 感谢~
+- 感谢每一个star和每一份指教~
 
 ## 说明
 **对文中提及的点有不赞同的欢迎[提出 issues](https://github.com/kuckboy1994/dailyNote/issues/new)（请添加 `readme` 标签）讨论。还可提出需要帮助（ `help wanted` 标签）或反馈问题( `bug` 标签)。**
@@ -103,4 +103,4 @@
 	- markdown
 	- [资源](其他/Source.md)
 - PHP
-	- php对于前端的帮助
+	- [php对于前端的帮助](PHP/php-helper.md)
