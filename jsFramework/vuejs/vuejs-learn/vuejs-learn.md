@@ -94,3 +94,26 @@ new Vue({
 - js
 - css
     - 可以在.vue中间中加入css代码。可以设置`<style lang="less">`
+
+## import
+import 是 es6 的一种语法。
+```
+import App from './App'
+```
+等价于 
+```
+var App = require('./App')
+```
+
+## export
+```
+export default {
+  name: 'app'
+}
+```
+相当于
+```
+module.export = {
+    
+}
+```
