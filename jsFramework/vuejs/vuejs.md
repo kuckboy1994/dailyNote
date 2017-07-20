@@ -1,5 +1,12 @@
 # vuejs
 
+## 数据双向绑定
+- v-model
+- v-html
+- v-text
+- v-for
+- v-if/v-show
+
 ## 声明周期
 ![](images/lifecycle.png)
 

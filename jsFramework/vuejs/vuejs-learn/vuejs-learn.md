@@ -114,6 +114,8 @@ export default {
 相当于
 ```
 module.export = {
-    
+
 }
 ```
+
+## 父子之间数据传递
