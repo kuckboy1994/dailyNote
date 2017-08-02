@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>104 set</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+<div id="app">
+  <ul>
+    <li v-for="(item, index) in list" v-text="item.name + '-' + item.price + '-' + index"></li>
+  </ul>
+  <button @click="changeItem">change</button>
+</div>
+<script>
+  new Vue({
+    el: '#app',
+    data: {
+      list: [
+        {
+          name: 'apple',
+          price: 20
+        },
+        {
+          name: 'banane',
+          price: 33
+        },
+        {
+          name: 'pear',
+          price: 11
+        }
+      ]
+    },
+    methods: {
+      changeItem () {
+        Vue.set(this.list, 1, {
+          name: 'pinnapple',
+          price: 234
+        })
+      }
+    }
+  })
+</script>
+</body>
+</html>
