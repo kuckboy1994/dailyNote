@@ -10,7 +10,6 @@
 
 ## 内置组件
 
-
 ## 数据双向绑定
 - v-model
 - v-html
@@ -20,7 +19,6 @@
 
 ## 声明周期
 ![](images/lifecycle.png)
-
 
 
 

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="view_div">
+		<button class="btn">1</button>
+		<button class="btn">2</button>
+		<button class="btn">3</button>
+		<button class="btn">4</button>
+		<button class="btn">5</button>
+	</div>
+	<script src="http://s.thsi.cn/js/jquery-1.8.3.min.js"></script>
+	<script type="text/javascript">
+		$('#view_div').on('click', '.btn', function () {
+			console.log($(this).text());
+		});
+
+		var index = 6;
+		setInterval(function () {
+			$('#view_div').append('<button class="btn">'+index+'</button>');
+			index ++;
+		}, 1000);
+	</script>
+</body>
+</html>
