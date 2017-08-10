@@ -32,6 +32,9 @@ git config --global user.email "shanchao@qq.com"
 ## git init
 初始化仓库
 
+## git reflog
+[link](http://www.jianshu.com/p/8b4c95677ee0)
+
 ## git status
 - 未跟踪 < - > 跟踪
 - 工作目录 < - > 暂存区
