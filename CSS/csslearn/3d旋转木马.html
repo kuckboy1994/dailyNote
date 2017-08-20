@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>3d 旋转木马</title>
+	<style>
+		#stage {
+			width: 500px;
+			height: 400px;
+			background-color: #ccc;
+			border-radius: 3px;
+			box-shadow: 0 0 2px 5px rgba(0,0,0,0.5);
+			margin: 0 auto;
+			perspective: 800px;
+			perspective-origin: 50% -10%;
+		}
+		#container {
+			width: 128px;
+			height: 100px;
+			position: absolute;
+			left: 50%;
+			margin-left: -64px;
+			top: 80px;
+			transform-style: preserve-3d;
+			transition: all 1s ease;
+		}
+		#container img {
+			position: absolute;
+
+			/*transform: rotateY(60deg);*/
+		}
+
+	</style>
+</head>
+<body>
+	<div id="stage">
+		<div id="container">
+			
+		</div>
+	</div>
+
+	<script>
+		(function () {
+			var oContainer = document.getElementById('container');
+			var html = '';
+			for (var i = 0; i < 9; i++) {
+				html += '<img src="images/mm'+(i+1)+'.jpg" style="transform:rotateY('+(i*45)+'deg) translateZ(190px);"/>';
+			}
+
+			oContainer.innerHTML = html;
+			var index = 0;
+			oContainer.onclick = function () {
+				index ++;
+				this.style.transform = 'rotateY('+index*45+'deg)'
+			}
+		})();
+	</script>
+</body>
+</html>

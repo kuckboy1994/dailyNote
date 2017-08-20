@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		ul {
+			list-style: none;
+		}
+		#container {
+			width: 50px;
+			height: 50px;
+			position: fixed;
+			right: 20px;
+			bottom: 20px;
+			perspective: 800px;
+		}
+
+		#menu li{
+			width: 50px;
+			height: 50px;
+			position: absolute;
+			left: 0;
+			right: 0;
+			transition: transform 1s ease;
+		}
+
+		#home {
+			position: absolute;
+			width: 50px;
+			height: 50px;
+
+			transition: transform 1s ease;
+		}
+	</style>
+</head>
+<body>
+	<div id="container">
+		<ul id="menu">
+			<li><img src="img/close.png" alt=""></li>
+			<li><img src="img/full.png" alt=""></li>
+			<li><img src="img/open.png" alt=""></li>
+			<li><img src="img/prev.png" alt=""></li>
+			<li><img src="img/refresh.png" alt=""></li>
+		</ul>
+		<div id="home">
+			<img src="img/home.png" alt="">
+		</div>
+	</div>
+
+	<script>
+		(function () {
+			var oHome = document.querySelector('#home');
+			var oMenu = document.querySelector('#menu');
+			var aMenu = document.querySelectorAll('li');
+
+			var bClicked = true;
+			oHome.addEventListener('click', function () {
+				if (bClicked) {
+					// this.style.transform = 'rotate(-360deg)';
+					for (var i = 0; i < aMenu.length; i++) {
+						var x = 0;
+						var y = 0;
+						x = 150 * Math.sin(90/4*Math.PI/180 * (i));
+						y = 150 * Math.cos(90/4*Math.PI/180 * (i));
+						aMenu[i].style.transitionDelay = i*50+'ms';
+						aMenu[i].style.transform = 'translate(-'+x+'px, -'+y+'px) rotate(-360deg)';
+					}
+				} else {
+					this.style.transform = 'rotate(0deg)';
+					for (var i = 0; i < aMenu.length; i++) {
+						var x = 0;
+						var y = 0;
+						aMenu[i].style.transitionDelay = (aMenu.length - 1 - i)*50+'ms';
+						aMenu[i].style.transform = 'translate(-'+x+'px, -'+y+'px) rotate(0deg)';
+					}
+				}
+				bClicked = !bClicked;
+
+			}, false);
+
+			var fn = function () {
+				this.style.transform = 'scale(2)';
+			};
+
+			for (var i = 0; i < aMenu.length; i++) {
+				aMenu[i].addEventListener('click', fn, false)
+			}
+
+			
+			console.log(aMenu);
+		})();
+	</script>
+</body>
+</html>

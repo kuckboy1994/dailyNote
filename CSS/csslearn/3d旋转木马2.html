@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>3d 旋转木马</title>
+	<style>
+		#stage {
+			width: 500px;
+			height: 400px;
+			background-color: #ccc;
+			border-radius: 3px;
+			box-shadow: 0 0 2px 5px rgba(0,0,0,0.5);
+			margin: 0 auto;
+			perspective: 800px;
+			perspective-origin: 50% -10%;
+		}
+		#container {
+			width: 128px;
+			height: 100px;
+			position: absolute;
+			left: 50%;
+			margin-left: -64px;
+			top: 80px;
+			transform-style: preserve-3d;
+			transition: all 1s ease;
+		}
+		#container img {
+			position: absolute;
+			transition: all 1s ease;
+		}
+
+	</style>
+</head>
+<body>
+	<div id="stage">
+		<div id="container">
+			
+		</div>
+	</div>
+
+	<script>
+		(function () {
+			var oContainer = document.getElementById('container');
+			var html = '';
+			for (var i = 0; i < 9; i++) {
+				html += '<img src="images/mm'+(i+1)+'.jpg"/>';
+			}
+
+			oContainer.innerHTML = html;
+
+			var aImg = oContainer.getElementsByTagName('img');
+			for (var i = 0; i < aImg.length; i++) {
+				(function (i) {
+					setTimeout(function () {
+						aImg[i].style.transform = 'rotateY('+i*40+'deg) translateZ(190px)'
+					}, 100*(9-i));
+				})(i)
+			}
+
+			var index = 0;
+			oContainer.onclick = function () {
+				index ++;
+				this.style.transform = 'rotateY('+index*40+'deg)'
+			}
+		})();
+	</script>
+</body>
+</html>

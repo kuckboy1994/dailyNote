@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>旋转的立方体</title>
+	<style>
+		body {
+			background-color: black;
+			perspective: 800px;
+		}
+		#container {
+			width: 200px;
+			height: 200px;
+			margin: 200px auto;
+			transform-style: preserve-3d;
+			animation: rotateCube 2s linear infinite;
+		}
+		@keyframes rotateCube {
+			0% {
+
+			}
+			25% {
+				transform: rotateX(40deg);
+			}
+			50% {
+				transform: rotateY(-230deg);
+			}
+			75% {
+				transform: rotateZ(123deg);
+			}
+			100% {
+				transform: rotateY(-360deg);
+			}
+		}
+		.cube {
+			height: 200px;
+			width: 200px;
+			border-radius: 10px;
+			background-color: white;
+			opacity: 0.6;
+			font-size: 48px;
+			line-height: 200px;
+			text-align: center;
+			color: black;
+			position: absolute;
+		}
+		.one {
+			transform: rotateX(90deg) scale3d(1.2, 1.2, 1.2) translateZ(100px);
+		}
+		.two {
+			transform: rotateY(0) scale3d(1.2, 1.2, 1.2) translateZ(100px);
+		}
+		.four {
+			transform: rotateY(180deg) scale3d(1.2, 1.2, 1.2) translateZ(100px);
+		}
+		.three {
+			transform: rotateY(90deg) scale3d(1.2, 1.2, 1.2) translateZ(100px);
+		}
+		.five {
+			transform: rotateY(-90deg) scale3d(1.2, 1.2, 1.2) translateZ(100px);
+		}
+		.six {
+			transform: rotateX(-90deg) scale3d(1.2, 1.2, 1.2) translateZ(100px);
+		}
+	</style>
+</head>
+<body>
+	<div id="container">
+		<div class="cube one">1</div>
+		<div class="cube two">2</div>
+		<div class="cube three">3</div>
+		<div class="cube four">4</div>
+		<div class="cube five">5</div>
+		<div class="cube six">6</div>
+	</div>
+</body>
+</html>
