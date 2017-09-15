@@ -169,8 +169,8 @@ function siblingCheck( a, b ) {
 `TODO` 注释要使用全大写的字符串 `TODO`, 在随后的圆括号里写上你的大名, 邮件地址, 或其它身份标识. 冒号是可选的. 主要目的是让添加注释的人 (也是可以请求提供更多细节的人) 可根据规范的 `TODO` 格式进行查找. 添加 `TODO` 注释并不意味着你要自己来修正.
 
 ``` javascript
-// TODO(shanchao@myheixn.com): Use a "*" here for concatenation operator.
-// TODO(keke@myhexin.com) change this to use relations.
+// TODO(123123@qq.com): Use a "*" here for concatenation operator.
+// TODO(123123@qq.com) change this to use relations.
 ```
 全局查询
 代码评审 
